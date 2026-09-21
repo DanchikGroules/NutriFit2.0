@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/video_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
+    <VideoView
+        android:id="@+id/video"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <TextView
+        android:id="@+id/video_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="@string/video_error"
+        android:visibility="gone" />
+</LinearLayout>

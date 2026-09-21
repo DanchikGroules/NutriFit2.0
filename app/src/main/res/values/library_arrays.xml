@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories">
+        <item>Все рецепты</item>
+        <item>Каши и завтраки</item>
+        <item>Омлеты</item>
+        <item>Салаты</item>
+        <item>Супы</item>
+        <item>Паста</item>
+        <item>Боулы</item>
+        <item>Птица</item>
+        <item>Рыба</item>
+        <item>Растительные блюда</item>
+        <item>Тосты и перекусы</item>
+        <item>Напитки</item>
+        <item>Десерты</item>
+    </string-array>
+    <string-array name="diets">
+        <item>Любой состав</item>
+        <item>Вегетарианское</item>
+        <item>Веганское</item>
+        <item>Без молочных ингредиентов</item>
+        <item>Без глютеновых ингредиентов</item>
+    </string-array>
+    <string-array name="sorts">
+        <item>По названию</item>
+        <item>Сначала быстрые</item>
+        <item>Сначала менее калорийные</item>
+    </string-array>
+</resources>

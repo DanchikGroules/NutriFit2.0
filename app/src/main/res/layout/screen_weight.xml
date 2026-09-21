@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+    <TextView
+        android:id="@+id/weight_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weight_title"
+        style="@style/Title" />
+    <TextView
+        android:id="@+id/weight_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weight_subtitle"
+        style="@style/Body" />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:strokeWidth="0dp"
+        app:cardElevation="0dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <TextView
+                android:id="@+id/weight_goal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/weight_title"
+                style="@style/Section" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/weight_today_layout"
+                style="@style/Field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/weight_today">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/weight_today"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:importantForAutofill="no"
+                    android:maxLength="50" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save_weight"
+                style="@style/Action" />
+            <TextView
+                android:id="@+id/weight_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/weight_note"
+                style="@style/Body" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/weight_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/history"
+        style="@style/Section" />
+    <TextView
+        android:id="@+id/period"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/measurements_period"
+        style="@style/Body" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/chart_holder" />
+    <TextView
+        android:id="@+id/history_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/history"
+        style="@style/Section" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/weight_history" />
+</LinearLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp">
+    <TextView
+        android:id="@+id/library_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Title"
+        android:text="@string/library_title"
+        android:textSize="28sp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Field"
+        android:hint="@string/search_food">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:singleLine="true"
+            android:maxLength="128"
+            android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        app:checkedChip="@id/filter_recipes">
+        <com.google.android.material.chip.Chip
+            android:id="@+id/filter_recipes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recipes_only"
+            android:checkable="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/filter_products"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/products_only"
+            android:checkable="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/filter_favorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favorites_only"
+            android:checkable="true" />
+    </com.google.android.material.chip.ChipGroup>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+        <Spinner
+            android:id="@+id/category"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:contentDescription="@string/filter_label" />
+        <Spinner
+            android:id="@+id/diet"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:contentDescription="@string/diet_label" />
+    </LinearLayout>
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/safe_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/safe_only" />
+    <TextView
+        android:id="@+id/result_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="@string/library_subtitle" />
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="@string/library_empty"
+        android:visibility="gone" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recipe_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="12dp" />
+</LinearLayout>

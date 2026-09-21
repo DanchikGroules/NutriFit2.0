@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="28dp"
+        app:strokeWidth="0dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/primary">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="22dp">
+            <TextView
+                android:id="@+id/premium_badge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/premium_label"
+                android:textColor="#D9EDB9"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/premium_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Title"
+                android:text="@string/premium_title"
+                android:textColor="#FFFFFF" />
+            <TextView
+                android:id="@+id/premium_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/premium_features"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/premium_disclaimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="@string/premium_note" />
+    <TextView
+        android:id="@+id/premium_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Section"
+        android:text="@string/premium_inactive" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/premium_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/premium_enable"
+        style="@style/Action" />
+</LinearLayout>

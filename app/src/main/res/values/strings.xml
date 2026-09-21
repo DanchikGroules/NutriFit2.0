@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NutriFit</string>
+    <string name="tagline">Питание в вашем ритме</string>
+    <string name="local_badge">ТОЛЬКО НА ВАШЕМ УСТРОЙСТВЕ</string>
+    <string name="register_title">Начните с себя</string>
+    <string name="register_subtitle">Создайте локальный аккаунт и собирайте полезные привычки каждый день.</string>
+    <string name="login_title">С возвращением</string>
+    <string name="login_subtitle">Войдите в свой дневник. Все записи остались на этом телефоне.</string>
+    <string name="name">Имя</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="confirm_password">Повторите пароль</string>
+    <string name="register">Создать аккаунт</string>
+    <string name="login">Войти</string>
+    <string name="privacy">Без облака и отправки данных. Один аккаунт на этом устройстве. Email используется только для входа; восстановление возможно по резервному коду.</string>
+    <string name="password_help">От 8 до 128 символов</string>
+    <string name="name_error">Введите имя: от 1 до 50 символов.</string>
+    <string name="email_error">Введите корректный email.</string>
+    <string name="password_error">Пароль должен содержать от 8 до 128 символов.</string>
+    <string name="confirm_error">Пароли не совпадают.</string>
+    <string name="login_error">Email или пароль не совпадают.</string>
+    <string name="storage_error">Не удалось сохранить или прочитать данные. Попробуйте ещё раз.</string>
+    <string name="diary">Дневник</string>
+    <string name="progress">Прогресс</string>
+    <string name="profile">Профиль</string>
+    <string name="today_title">Ваш день в балансе</string>
+    <string name="greeting">Привет, %1$s</string>
+    <string name="daily_energy">ЭНЕРГИЯ ЗА ДЕНЬ</string>
+    <string name="calorie_total">%1$.0f / %2$.0f ккал</string>
+    <string name="remaining">Осталось %1$.0f ккал</string>
+    <string name="over_target">Выше ориентира на %1$.0f ккал</string>
+    <string name="protein">Белки</string>
+    <string name="fat">Жиры</string>
+    <string name="carbs">Углеводы</string>
+    <string name="macro_value">%1$.0f / %2$.0f г</string>
+    <string name="add_food">Добавить еду</string>
+    <string name="meals_title">Приёмы пищи</string>
+    <string name="empty_diary">Здесь начинается ваш дневник</string>
+    <string name="empty_diary_hint">Добавьте блюдо — калории и БЖУ посчитаются автоматически.</string>
+    <string name="suggestions_title">Идеи для вашего меню</string>
+    <string name="catalog_note">Учебный каталог: значения примерные. Проверяйте состав и следы аллергенов на упаковке.</string>
+    <string name="no_suggestions">Сейчас нет подходящих рекомендаций с учётом остатка калорий и ваших ограничений.</string>
+    <string name="past_note">Для этой даты показан текущий ориентир профиля.</string>
+    <string name="delete">Удалить</string>
+    <string name="cancel">Отмена</string>
+    <string name="save">Сохранить</string>
+    <string name="ok">ОК</string>
+    <string name="check_data">Проверьте данные</string>
+    <string name="number_error">Заполните числовые поля корректно.</string>
+    <string name="delete_question">Удалить «%1$s» из дневника?</string>
+    <string name="food_detail">%1$s · %2$.0f г · %3$.0f ккал</string>
+    <string name="suggestion_detail">%1$d г · %2$.0f ккал</string>
+    <string name="food_label">Блюдо</string>
+    <string name="meal_label">Приём пищи</string>
+    <string name="grams">Вес готового блюда, г</string>
+    <string name="portion_error">Порция должна быть от 1 до 2000 г.</string>
+    <string name="allergen_error">В составе указан выбранный вами аллерген.</string>
+    <string name="profile_title">Настроим под вас</string>
+    <string name="profile_subtitle">Ваши параметры помогают рассчитать дневной ориентир.</string>
+    <string name="adult_note">Учебный расчёт для взрослых 18+. Это приблизительный ориентир, а не медицинская рекомендация.</string>
+    <string name="age">Возраст, лет</string>
+    <string name="height">Рост, см</string>
+    <string name="weight">Текущий вес, кг</string>
+    <string name="target_weight">Желаемый вес, кг</string>
+    <string name="sex_label">Параметр пола для формулы</string>
+    <string name="activity_label">Активность</string>
+    <string name="goal_label">Ваша цель</string>
+    <string name="preferences">Предпочтения в питании</string>
+    <string name="likes">Любимые продукты</string>
+    <string name="dislikes">Нелюбимые продукты</string>
+    <string name="allergies">Аллергии</string>
+    <string name="restrictions">Пищевые ограничения</string>
+    <string name="save_profile">Сохранить профиль</string>
+    <string name="age_error">Возраст должен быть целым числом.</string>
+    <string name="preference_error">Продукт не может быть одновременно любимым и нелюбимым.</string>
+    <string name="range_error">Возраст: 18–100 лет, рост: 120–230 см, вес: 35–250 кг.</string>
+    <string name="goal_error">Целевой вес должен соответствовать выбранной цели.</string>
+    <string name="logout">Выйти из аккаунта</string>
+    <string name="logout_question">Выйти? Дневник и профиль останутся на устройстве. Для входа потребуется пароль.</string>
+    <string name="weight_title">Маленькие шаги. Ваш прогресс.</string>
+    <string name="weight_subtitle">Следите за изменениями без спешки.</string>
+    <string name="weight_goal">Цель: %1$.1f кг</string>
+    <string name="weight_today">Вес сегодня, кг</string>
+    <string name="save_weight">Записать измерение</string>
+    <string name="weight_note">Одна запись в день. Повторное сохранение обновит сегодняшнее измерение.</string>
+    <string name="weight_error">Введите вес от 35 до 250 кг.</string>
+    <string name="goal_reached">Цель достигнута. Включено поддержание веса.</string>
+    <string name="history">История измерений</string>
+    <string name="empty_weight">Пока нет измерений. Запишите свой вес сегодня.</string>
+    <string name="weight_change">Изменение за период: %1$+.1f кг</string>
+    <string name="weight_row">%1$s   ·   %2$.1f кг</string>
+    <string name="chart_description">График изменения веса. Точные значения приведены в истории ниже.</string>
+    <string name="saved">Сохранено</string>
+    <string name="account_info">Локальный аккаунт · %1$s</string>
+    <string name="measurements_period">Последние 90 измерений</string>
+    <string-array name="sex">
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+    <string-array name="activity">
+        <item>Низкая</item>
+        <item>Лёгкая</item>
+        <item>Средняя</item>
+        <item>Высокая</item>
+    </string-array>
+    <string-array name="goals">
+        <item>Снизить вес</item>
+        <item>Поддерживать вес</item>
+        <item>Набрать вес</item>
+    </string-array>
+    <string-array name="meals">
+        <item>Завтрак</item>
+        <item>Обед</item>
+        <item>Ужин</item>
+        <item>Перекус</item>
+    </string-array>
+    <string-array name="ingredients">
+        <item>Курица</item>
+        <item>Паста</item>
+        <item>Йогурт</item>
+        <item>Рыба</item>
+        <item>Арахис</item>
+        <item>Рис</item>
+        <item>Овощи</item>
+        <item>Овсянка</item>
+        <item>Банан</item>
+        <item>Яйцо</item>
+        <item>Молоко</item>
+    </string-array>
+    <string-array name="allergens">
+        <item>Арахис</item>
+        <item>Молоко</item>
+        <item>Яйцо</item>
+        <item>Рыба</item>
+        <item>Глютен</item>
+        <item>Соя</item>
+        <item>Орехи</item>
+        <item>Кунжут</item>
+        <item>Ракообразные / моллюски</item>
+    </string-array>
+    <string-array name="restriction_names">
+        <item>Вегетарианское</item>
+        <item>Веганское</item>
+        <item>Без лактозы</item>
+        <item>Без глютена</item>
+    </string-array>
+    <string-array name="foods">
+        <item>Паста с курицей</item>
+        <item>Курица с рисом</item>
+        <item>Йогурт с бананом</item>
+        <item>Рыба с рисом</item>
+        <item>Рис с овощами</item>
+        <item>Овсянка на воде с бананом</item>
+        <item>Омлет с овощами</item>
+        <item>Йогурт с арахисом</item>
+    </string-array>
+    <string name="recipes_tab">Рецепты</string>
+    <string name="plan_tab">План</string>
+    <string name="learn_tab">Уроки</string>
+    <string name="library_title">Найдите своё\nновое любимое</string>
+    <string name="library_subtitle">120 рецептов · 100 продуктов · всё рядом</string>
+    <string name="search_food">Поиск блюда или ингредиента</string>
+    <string name="filter_label">Категория</string>
+    <string name="diet_label">Фильтр по составу</string>
+    <string name="recipes_only">Рецепты</string>
+    <string name="products_only">Продукты</string>
+    <string name="favorites_only">Избранное</string>
+    <string name="quick_only">До 20 минут</string>
+    <string name="safe_only">Без моих аллергенов</string>
+    <string name="library_count">Найдено: %1$d</string>
+    <string name="library_empty">Ничего не найдено. Измените запрос или фильтры.</string>
+    <string name="favorite_add">В избранное</string>
+    <string name="favorite_remove">В избранном</string>
+    <string name="open_recipe">Открыть рецепт</string>
+    <string name="recipe_meta">%1$d мин · ≈ %2$.0f ккал</string>
+    <string name="product_meta">≈ %1$.0f ккал / 100 г</string>
+    <string name="recipe_nutrition">≈ %1$.0f ккал · Б %2$.1f · Ж %3$.1f · У %4$.1f г</string>
+    <string name="recipe_portion">Одна порция ≈ %1$.0f г</string>
+    <string name="recipe_ingredients">Ингредиенты</string>
+    <string name="recipe_steps">Готовим по шагам</string>
+    <string name="recipe_step">%1$d. %2$s</string>
+    <string name="ingredient_amount">%1$s — %2$.0f г</string>
+    <string name="servings">Количество порций</string>
+    <string name="quantity_grams">Количество, г</string>
+    <string name="portion_range">Укажите 0,25–10 порций; для дневника не больше 2000 г за запись.</string>
+    <string name="plan_recipe">Добавить в план</string>
+    <string name="diary_recipe">Записать в дневник</string>
+    <string name="meal_prompt">Приём пищи</string>
+    <string name="nutrition_note">Пищевая ценность и выход блюда приблизительные. Количество ингредиентов указано до приготовления, если не отмечено иначе. Проверяйте состав и следы аллергенов на упаковке.</string>
+    <string name="product_note">Значения на 100 г приблизительные. Для брендовых продуктов сверяйте этикетку. Сырое и приготовленное состояние указаны в названии.</string>
+    <string name="plan_title">Меньше суеты.\nБольше вкуса.</string>
+    <string name="plan_subtitle">Соберите меню заранее — покупки посчитаются сами.</string>
+    <string name="plan_add">Выбрать блюдо</string>
+    <string name="plan_empty">План пока пуст. Выберите рецепт и нажмите «Добавить в план».</string>
+    <string name="plan_eaten">Уже в дневнике</string>
+    <string name="plan_consume">Съедено → в дневник</string>
+    <string name="plan_detail">%1$s · %2$.2f порц. · ≈ %3$.0f ккал</string>
+    <string name="plan_total">Запланировано: ≈ %1$.0f ккал</string>
+    <string name="plan_future">Будущие блюда можно отметить съеденными в день приёма пищи.</string>
+    <string name="shopping_title">Список покупок</string>
+    <string name="shopping_note">Ингредиенты несъеденных блюд на выбранную дату. Количества одинаковых продуктов суммируются.</string>
+    <string name="shopping_empty">Добавьте блюда в план — здесь появятся ингредиенты.</string>
+    <string name="shopping_share">Поделиться списком</string>
+    <string name="water_title">Вода за день</string>
+    <string name="water_value">%1$d мл</string>
+    <string name="water_add">+ 250 мл</string>
+    <string name="water_remove">− 250 мл</string>
+    <string name="water_note">Личный учёт без универсальной нормы.</string>
+    <string name="view_progress">Мой прогресс</string>
+    <string name="discover_title">Что приготовим\nсегодня?</string>
+    <string name="discover_hint">120 идей для вашей кухни</string>
+    <string name="discover_action">Открыть коллекцию</string>
+    <string name="premium_title">Больше возможностей.\nВаш NutriFit Plus.</string>
+    <string name="premium_label">PLUS · ДЕМОНСТРАЦИЯ</string>
+    <string name="premium_note">Это демо для школьного проекта. Оплаты, подписки и автоматических списаний нет.</string>
+    <string name="premium_features">План питания на любую дату\nАвтоматический список покупок\nРасширенные практические уроки</string>
+    <string name="premium_enable">Включить демо Plus бесплатно</string>
+    <string name="premium_disable">Выключить демо Plus</string>
+    <string name="premium_active">Демо Plus включено</string>
+    <string name="premium_inactive">Доступно в демо Plus</string>
+    <string name="premium_open">Посмотреть возможности Plus</string>
+    <string name="premium_gate">Для этой функции включите бесплатное демо Plus. Платежей нет.</string>
+    <string name="learn_title">Вкусно — это\nнавык</string>
+    <string name="learn_subtitle">Практика на кухне, полезные привычки и видео от авторов.</string>
+    <string name="learn_progress">Завершено уроков: %1$d из %2$d</string>
+    <string name="learn_external">Видео авторов · бесплатно</string>
+    <string name="learn_own">Практикум NutriFit</string>
+    <string name="lesson_open">Открыть урок</string>
+    <string name="lesson_done">Отметить завершённым</string>
+    <string name="lesson_undo">Снять отметку</string>
+    <string name="lesson_completed">Завершено</string>
+    <string name="watch_original">Смотреть у автора ↗</string>
+    <string name="video_note">Откроется сайт автора или YouTube. Нужен интернет; доступность зависит от сервиса и региона. Материал не входит в платный контент NutriFit.</string>
+    <string name="video_local">Открыть моё видео</string>
+    <string name="video_attach">Прикрепить локальное видео</string>
+    <string name="video_missing">Ваше видео ещё не прикреплено. Можно выбрать файл с устройства.</string>
+    <string name="video_error">Не удалось открыть видео. Выберите доступный файл ещё раз.</string>
+    <string name="no_browser">Нет приложения для открытия этой ссылки.</string>
+    <string name="account_security">Безопасность аккаунта</string>
+    <string name="change_password">Сменить пароль</string>
+    <string name="current_password">Текущий пароль</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="recovery_create">Получить новый резервный код</string>
+    <string name="recovery_title">Сохраните резервный код</string>
+    <string name="recovery_explain">Этот код восстанавливает доступ без интернета. Сохраните его отдельно от телефона. Новый код отменяет предыдущий.</string>
+    <string name="recovery_saved">Код сохранён, продолжить</string>
+    <string name="recovery_code">Резервный код</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="reset_password">Восстановить доступ</string>
+    <string name="reset_success">Пароль изменён. Войдите с новым паролем.</string>
+    <string name="reset_error">Данные не совпадают либо резервный код ещё не создан.</string>
+    <string name="credentials_error">Проверьте текущий пароль.</string>
+    <string name="login_throttled">Слишком много попыток. Подождите 30 секунд.</string>
+    <string name="password_changed">Пароль изменён.</string>
+    <string name="security_note">Один аккаунт на устройстве. Резервный код заменяет восстановление по email.</string>
+    <string name="back">Назад</string>
+    <string name="catalog_brand">КОЛЛЕКЦИЯ NUTRIFIT</string>
+    <string name="allergy_label">Аллергены по составу: %1$s</string>
+    <string name="no_listed_allergens">не указаны; проверяйте упаковку</string>
+    <string name="allergen_warning">В этом блюде есть выбранный вами аллерген.</string>
+    <string name="open_weight">История веса</string>
+    <string name="filter_reset">Сбросить фильтры</string>
+    <string name="saving">Сохраняем…</string>
+    <string name="product_tag">ПРОДУКТ</string>
+    <string name="recipe_tag">РЕЦЕПТ</string>
+    <string name="all_content">Все</string>
+    <string name="link_source">Источник: %1$s</string>
+    <string name="recipe_saved">Блюдо добавлено</string>
+    <string name="free_tag">БЕСПЛАТНО</string>
+    <string name="plus_tag">PLUS</string>
+    <string name="video_badge">ВИДЕО</string>
+    <string name="lesson_reading">ПРАКТИКУМ</string>
+    <string name="return_library">Вернуться к каталогу</string>
+    <string name="plan_confirm_delete">Убрать блюдо из плана? Запись дневника, если она уже создана, сохранится.</string>
+    <string name="language_title">Язык интерфейса</string>
+    <string name="language_button">Язык / Language</string>
+    <string name="language_note">Русский, английский и польский: весь каталог и встроенные уроки доступны офлайн. Внешние видео остаются на языке автора.</string>
+    <string-array name="language_names" translatable="false">
+        <item>Русский</item>
+        <item>English</item>
+        <item>Polski</item>
+    </string-array>
+    <string-array name="meal_keys" translatable="false">
+        <item>breakfast</item>
+        <item>lunch</item>
+        <item>dinner</item>
+        <item>snack</item>
+    </string-array>
+    <string-array name="locale_tags" translatable="false">
+        <item>ru</item>
+        <item>en</item>
+        <item>pl</item>
+    </string-array>
+    <string name="demo_entry">Посмотреть демо без пароля</string>
+    <string name="demo_note">Забыли пароль? Попробуйте приложение в отдельном демо-профиле. Личные записи останутся на месте.</string>
+    <string name="demo_name">Демо</string>
+    <string name="demo_account">Демо-профиль · данные отдельно от аккаунта</string>
+    <string name="demo_badge">ДЕМО · отдельные данные</string>
+    <string name="demo_exit">Выйти из демо</string>
+    <string name="demo_exit_note">Вернуться ко входу? Демо-записи сохранятся отдельно. Для личного аккаунта по-прежнему нужен пароль или резервный код.</string>
+</resources>

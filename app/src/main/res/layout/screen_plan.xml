@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <TextView
+        android:id="@+id/plan_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Title"
+        android:text="@string/plan_title" />
+    <TextView
+        android:id="@+id/plan_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="@string/plan_subtitle" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/plan_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/diary"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/plan_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/plan_add"
+        style="@style/Action" />
+    <TextView
+        android:id="@+id/plan_total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Section"
+        android:text="@string/plan_total" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/plan_rows" />
+    <TextView
+        android:id="@+id/shopping_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Section"
+        android:text="@string/shopping_title" />
+    <TextView
+        android:id="@+id/shopping_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="@string/shopping_note" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/shopping_rows" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/shopping_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/shopping_share"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
+</LinearLayout>

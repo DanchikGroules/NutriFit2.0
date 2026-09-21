@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background" android:importantForAccessibility="noHideDescendants">
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center" android:orientation="vertical" android:gravity="center" android:padding="32dp">
+  <FrameLayout android:layout_width="144dp" android:layout_height="144dp">
+   <View android:id="@+id/startup_halo" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/startup_halo" />
+   <ImageView android:id="@+id/startup_leaf" android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="center" android:src="@drawable/ic_leaf" android:importantForAccessibility="no" />
+  </FrameLayout>
+  <TextView android:id="@+id/startup_wordmark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" android:textSize="40sp" android:fontFamily="sans-serif-medium" android:textColor="@color/primary" android:layout_marginTop="24dp" />
+  <TextView android:id="@+id/startup_caption" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/tagline" android:textSize="16sp" android:textColor="@color/muted" android:layout_marginTop="12dp" android:gravity="center" />
+ </LinearLayout>
+</FrameLayout>

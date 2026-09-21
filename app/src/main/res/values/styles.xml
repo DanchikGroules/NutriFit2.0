@@ -1,9 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+    <style name="Base.AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="colorSecondaryContainer">@color/primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/primary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorOnSurfaceVariant">@color/muted</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
         <item name="android:fontFamily">sans</item>
-        <item name="android:colorAccent">#16866A</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowActionModeOverlay">true</item>
-        <item name="android:windowBackground">#F3F7F4</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:navigationBarColor">@color/ink</item>
     </style>
+    <style name="Title">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+    <style name="Section">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+    <style name="Body">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/muted</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+    <style name="Field" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+    </style>
+    <style name="Action" parent="Widget.Material3.Button">
+        <item name="android:minHeight">56dp</item>
+        <item name="cornerRadius">18dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+    <style name="AppTheme" parent="Base.AppTheme" />
 </resources>

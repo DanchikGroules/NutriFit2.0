@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#174C3C</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_container">#E0ECCC</color>
+    <color name="on_primary_container">#213F25</color>
+    <color name="background">#F7F5EF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="ink">#21332B</color>
+    <color name="muted">#69756C</color>
+    <color name="outline">#D9DED3</color>
+    <color name="peach">#F5DDC7</color>
+    <color name="lilac">#E8E1F6</color>
+    <color name="mint">#DCE9DC</color>
+</resources>

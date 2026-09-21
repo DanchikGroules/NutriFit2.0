@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NutriFit</string>
+    <string name="tagline">Odżywianie w Twoim rytmie</string>
+    <string name="local_badge">TYLKO NA TWOIM URZĄDZENIU</string>
+    <string name="register_title">Zacznij od siebie</string>
+    <string name="register_subtitle">Utwórz konto lokalne i buduj codzienne nawyki.</string>
+    <string name="login_title">Witaj ponownie</string>
+    <string name="login_subtitle">Zaloguj się do dziennika. Wszystkie wpisy są zapisane na tym telefonie.</string>
+    <string name="name">Imię</string>
+    <string name="email">Email</string>
+    <string name="password">Hasło</string>
+    <string name="confirm_password">Powtórz hasło</string>
+    <string name="register">Utwórz konto</string>
+    <string name="login">Zaloguj się</string>
+    <string name="privacy">Bez chmury i wysyłania danych. Jedno konto na urządzeniu. Email służy tylko do logowania; dostęp można odzyskać za pomocą kodu.</string>
+    <string name="password_help">Od 8 do 128 znaków</string>
+    <string name="name_error">Wpisz imię: od 1 do 50 znaków.</string>
+    <string name="email_error">Wpisz poprawny adres email.</string>
+    <string name="password_error">Hasło musi zawierać od 8 do 128 znaków.</string>
+    <string name="confirm_error">Hasła nie są zgodne.</string>
+    <string name="login_error">Email lub hasło są nieprawidłowe.</string>
+    <string name="storage_error">Nie udało się zapisać lub odczytać danych. Spróbuj ponownie.</string>
+    <string name="diary">Dziennik</string>
+    <string name="progress">Postępy</string>
+    <string name="profile">Profil</string>
+    <string name="today_title">Twój dzień w równowadze</string>
+    <string name="greeting">Cześć, %1$s</string>
+    <string name="daily_energy">ENERGIA W CIĄGU DNIA</string>
+    <string name="calorie_total">%1$.0f / %2$.0f kcal</string>
+    <string name="remaining">Pozostało %1$.0f kcal</string>
+    <string name="over_target">O %1$.0f kcal ponad cel</string>
+    <string name="protein">Białko</string>
+    <string name="fat">Tłuszcze</string>
+    <string name="carbs">Węglowodany</string>
+    <string name="macro_value">%1$.0f / %2$.0f g</string>
+    <string name="add_food">Dodaj jedzenie</string>
+    <string name="meals_title">Posiłki</string>
+    <string name="empty_diary">Tutaj zaczyna się Twój dziennik</string>
+    <string name="empty_diary_hint">Dodaj posiłek — kalorie i makroskładniki obliczą się automatycznie.</string>
+    <string name="suggestions_title">Pomysły na Twoje menu</string>
+    <string name="catalog_note">Katalog edukacyjny: wartości są przybliżone. Sprawdzaj skład i śladowe ilości alergenów na opakowaniu.</string>
+    <string name="no_suggestions">Brak propozycji pasujących do pozostałych kalorii i Twoich preferencji.</string>
+    <string name="past_note">Dla tej daty wyświetlany jest aktualny cel z profilu.</string>
+    <string name="delete">Usuń</string>
+    <string name="cancel">Anuluj</string>
+    <string name="save">Zapisz</string>
+    <string name="ok">OK</string>
+    <string name="check_data">Sprawdź dane</string>
+    <string name="number_error">Wpisz poprawne liczby we wszystkich polach liczbowych.</string>
+    <string name="delete_question">Usunąć „%1$s” z dziennika?</string>
+    <string name="food_detail">%1$s · %2$.0f g · %3$.0f kcal</string>
+    <string name="suggestion_detail">%1$d g · %2$.0f kcal</string>
+    <string name="food_label">Danie</string>
+    <string name="meal_label">Posiłek</string>
+    <string name="grams">Masa gotowego dania, g</string>
+    <string name="portion_error">Porcja musi mieć od 1 do 2000 g.</string>
+    <string name="allergen_error">Skład zawiera jeden z wybranych przez Ciebie alergenów.</string>
+    <string name="profile_title">Dopasuj do siebie</string>
+    <string name="profile_subtitle">Twoje dane pomagają oszacować dzienny cel.</string>
+    <string name="adult_note">Obliczenie edukacyjne dla dorosłych 18+. To przybliżony punkt odniesienia, a nie porada medyczna.</string>
+    <string name="age">Wiek, lata</string>
+    <string name="height">Wzrost, cm</string>
+    <string name="weight">Aktualna masa ciała, kg</string>
+    <string name="target_weight">Docelowa masa ciała, kg</string>
+    <string name="sex_label">Płeć używana we wzorze</string>
+    <string name="activity_label">Poziom aktywności</string>
+    <string name="goal_label">Twój cel</string>
+    <string name="preferences">Preferencje żywieniowe</string>
+    <string name="likes">Lubiane produkty</string>
+    <string name="dislikes">Nielubiane produkty</string>
+    <string name="allergies">Alergie</string>
+    <string name="restrictions">Ograniczenia żywieniowe</string>
+    <string name="save_profile">Zapisz profil</string>
+    <string name="age_error">Wiek musi być liczbą całkowitą.</string>
+    <string name="preference_error">Produkt nie może być jednocześnie lubiany i nielubiany.</string>
+    <string name="range_error">Wiek: 18–100 lat, wzrost: 120–230 cm, masa ciała: 35–250 kg.</string>
+    <string name="goal_error">Docelowa masa ciała musi odpowiadać wybranemu celowi.</string>
+    <string name="logout">Wyloguj się</string>
+    <string name="logout_question">Wylogować się? Dziennik i profil pozostaną na urządzeniu. Do logowania będzie potrzebne hasło.</string>
+    <string name="weight_title">Małe kroki. Twoje postępy.</string>
+    <string name="weight_subtitle">Obserwuj zmiany we własnym tempie.</string>
+    <string name="weight_goal">Cel: %1$.1f kg</string>
+    <string name="weight_today">Masa ciała dzisiaj, kg</string>
+    <string name="save_weight">Zapisz pomiar</string>
+    <string name="weight_note">Jeden wpis dziennie. Ponowny zapis zaktualizuje dzisiejszy pomiar.</string>
+    <string name="weight_error">Wpisz masę ciała od 35 do 250 kg.</string>
+    <string name="goal_reached">Cel osiągnięty. Włączono utrzymanie masy ciała.</string>
+    <string name="history">Historia pomiarów</string>
+    <string name="empty_weight">Brak pomiarów. Zapisz dzisiejszą masę ciała.</string>
+    <string name="weight_change">Zmiana w tym okresie: %1$+.1f kg</string>
+    <string name="weight_row">%1$s   ·   %2$.1f kg</string>
+    <string name="chart_description">Wykres zmian masy ciała. Dokładne wartości znajdują się w historii poniżej.</string>
+    <string name="saved">Zapisano</string>
+    <string name="account_info">Konto lokalne · %1$s</string>
+    <string name="measurements_period">Ostatnie 90 pomiarów</string>
+    <string-array name="sex">
+        <item>Mężczyzna</item>
+        <item>Kobieta</item>
+    </string-array>
+    <string-array name="activity">
+        <item>Niska</item>
+        <item>Lekka</item>
+        <item>Umiarkowana</item>
+        <item>Wysoka</item>
+    </string-array>
+    <string-array name="goals">
+        <item>Schudnąć</item>
+        <item>Utrzymać masę ciała</item>
+        <item>Przybrać na wadze</item>
+    </string-array>
+    <string-array name="meals">
+        <item>Śniadanie</item>
+        <item>Obiad</item>
+        <item>Kolacja</item>
+        <item>Przekąska</item>
+    </string-array>
+    <string-array name="ingredients">
+        <item>Kurczak</item>
+        <item>Makaron</item>
+        <item>Jogurt</item>
+        <item>Ryba</item>
+        <item>Orzeszki ziemne</item>
+        <item>Ryż</item>
+        <item>Warzywa</item>
+        <item>Płatki owsiane</item>
+        <item>Banan</item>
+        <item>Jajko</item>
+        <item>Mleko</item>
+    </string-array>
+    <string-array name="allergens">
+        <item>Orzeszki ziemne</item>
+        <item>Mleko</item>
+        <item>Jajka</item>
+        <item>Ryby</item>
+        <item>Gluten</item>
+        <item>Soja</item>
+        <item>Orzechy</item>
+        <item>Sezam</item>
+        <item>Skorupiaki / mięczaki</item>
+    </string-array>
+    <string-array name="restriction_names">
+        <item>Wegetariańskie</item>
+        <item>Wegańskie</item>
+        <item>Bez laktozy</item>
+        <item>Bez glutenu</item>
+    </string-array>
+    <string-array name="foods">
+        <item>Makaron z kurczakiem</item>
+        <item>Kurczak z ryżem</item>
+        <item>Jogurt z bananem</item>
+        <item>Ryba z ryżem</item>
+        <item>Ryż z warzywami</item>
+        <item>Owsianka na wodzie z bananem</item>
+        <item>Omlet z warzywami</item>
+        <item>Jogurt z orzeszkami ziemnymi</item>
+    </string-array>
+    <string name="recipes_tab">Przepisy</string>
+    <string name="plan_tab">Plan</string>
+    <string name="learn_tab">Lekcje</string>
+    <string name="library_title">Znajdź nowe\nulubione danie</string>
+    <string name="library_subtitle">120 przepisów · 100 produktów · wszystko tutaj</string>
+    <string name="search_food">Szukaj dania lub składnika</string>
+    <string name="filter_label">Kategoria</string>
+    <string name="diet_label">Filtr składników</string>
+    <string name="recipes_only">Przepisy</string>
+    <string name="products_only">Produkty</string>
+    <string name="favorites_only">Ulubione</string>
+    <string name="quick_only">Do 20 minut</string>
+    <string name="safe_only">Bez moich alergenów</string>
+    <string name="library_count">Znaleziono: %1$d</string>
+    <string name="library_empty">Brak wyników. Zmień zapytanie lub filtry.</string>
+    <string name="favorite_add">Do ulubionych</string>
+    <string name="favorite_remove">W ulubionych</string>
+    <string name="open_recipe">Otwórz przepis</string>
+    <string name="recipe_meta">%1$d min · ≈ %2$.0f kcal</string>
+    <string name="product_meta">≈ %1$.0f kcal / 100 g</string>
+    <string name="recipe_nutrition">≈ %1$.0f kcal · B %2$.1f · T %3$.1f · W %4$.1f g</string>
+    <string name="recipe_portion">Jedna porcja ≈ %1$.0f g</string>
+    <string name="recipe_ingredients">Składniki</string>
+    <string name="recipe_steps">Przygotowanie krok po kroku</string>
+    <string name="recipe_step">%1$d. %2$s</string>
+    <string name="ingredient_amount">%1$s — %2$.0f g</string>
+    <string name="servings">Liczba porcji</string>
+    <string name="quantity_grams">Ilość, g</string>
+    <string name="portion_range">Wpisz 0,25–10 porcji; wpis w dzienniku nie może przekraczać 2000 g.</string>
+    <string name="plan_recipe">Dodaj do planu</string>
+    <string name="diary_recipe">Dodaj do dziennika</string>
+    <string name="meal_prompt">Posiłek</string>
+    <string name="nutrition_note">Wartości odżywcze i masa gotowego dania są przybliżone. Ilości składników dotyczą stanu przed przygotowaniem, chyba że podano inaczej. Sprawdzaj skład i śladowe ilości alergenów na opakowaniu.</string>
+    <string name="product_note">Przybliżone wartości na 100 g. Dla produktów markowych sprawdź etykietę. Stan surowy lub gotowany podano w nazwie.</string>
+    <string name="plan_title">Mniej zamieszania.\nWięcej smaku.</string>
+    <string name="plan_subtitle">Zaplanuj posiłki — składniki zsumują się same.</string>
+    <string name="plan_add">Wybierz danie</string>
+    <string name="plan_empty">Plan jest pusty. Wybierz przepis i naciśnij „Dodaj do planu”.</string>
+    <string name="plan_eaten">Już w dzienniku</string>
+    <string name="plan_consume">Zjedzone → do dziennika</string>
+    <string name="plan_detail">%1$s · %2$.2f porcji · ≈ %3$.0f kcal</string>
+    <string name="plan_total">Zaplanowano: ≈ %1$.0f kcal</string>
+    <string name="plan_future">Przyszłe posiłki można oznaczyć jako zjedzone w zaplanowanym dniu.</string>
+    <string name="shopping_title">Lista zakupów</string>
+    <string name="shopping_note">Składniki niezjedzonych dań na wybraną datę. Ilości tych samych produktów są sumowane.</string>
+    <string name="shopping_empty">Dodaj dania do planu, aby zobaczyć ich składniki.</string>
+    <string name="shopping_share">Udostępnij listę</string>
+    <string name="water_title">Woda dzisiaj</string>
+    <string name="water_value">%1$d ml</string>
+    <string name="water_add">+ 250 ml</string>
+    <string name="water_remove">− 250 ml</string>
+    <string name="water_note">Osobisty dziennik bez uniwersalnej normy.</string>
+    <string name="view_progress">Moje postępy</string>
+    <string name="discover_title">Co dziś\nugotujemy?</string>
+    <string name="discover_hint">120 pomysłów do Twojej kuchni</string>
+    <string name="discover_action">Odkryj kolekcję</string>
+    <string name="premium_title">Więcej możliwości.\nTwój NutriFit Plus.</string>
+    <string name="premium_label">PLUS · DEMO</string>
+    <string name="premium_note">Wersja demonstracyjna projektu szkolnego. Bez płatności, subskrypcji i automatycznych opłat.</string>
+    <string name="premium_features">Plan posiłków na dowolną datę\nAutomatyczna lista zakupów\nDodatkowe lekcje praktyczne</string>
+    <string name="premium_enable">Włącz demo Plus za darmo</string>
+    <string name="premium_disable">Wyłącz demo Plus</string>
+    <string name="premium_active">Demo Plus jest włączone</string>
+    <string name="premium_inactive">Dostępne w demo Plus</string>
+    <string name="premium_open">Poznaj funkcje Plus</string>
+    <string name="premium_gate">Włącz bezpłatne demo Plus, aby użyć tej funkcji. Bez płatności.</string>
+    <string name="learn_title">Dobre gotowanie\nto umiejętność</string>
+    <string name="learn_subtitle">Praktyka w kuchni, codzienne nawyki i filmy autorów.</string>
+    <string name="learn_progress">Ukończone lekcje: %1$d z %2$d</string>
+    <string name="learn_external">Filmy autorów · bezpłatnie</string>
+    <string name="learn_own">Praktyka NutriFit</string>
+    <string name="lesson_open">Otwórz lekcję</string>
+    <string name="lesson_done">Oznacz jako ukończoną</string>
+    <string name="lesson_undo">Oznacz jako nieukończoną</string>
+    <string name="lesson_completed">Ukończono</string>
+    <string name="watch_original">Zobacz u autora ↗</string>
+    <string name="video_note">Otworzy stronę autora lub YouTube. Wymagany internet; dostępność zależy od serwisu i regionu. Materiał nie jest płatną treścią NutriFit.</string>
+    <string name="video_local">Odtwórz mój film</string>
+    <string name="video_attach">Dołącz lokalny film</string>
+    <string name="video_missing">Nie dołączono jeszcze filmu. Wybierz plik z urządzenia.</string>
+    <string name="video_error">Nie udało się otworzyć filmu. Wybierz ponownie dostępny plik.</string>
+    <string name="no_browser">Brak aplikacji do otwarcia tego linku.</string>
+    <string name="account_security">Bezpieczeństwo konta</string>
+    <string name="change_password">Zmień hasło</string>
+    <string name="current_password">Aktualne hasło</string>
+    <string name="new_password">Nowe hasło</string>
+    <string name="recovery_create">Wygeneruj nowy kod odzyskiwania</string>
+    <string name="recovery_title">Zapisz kod odzyskiwania</string>
+    <string name="recovery_explain">Ten kod przywraca dostęp bez internetu. Przechowuj go poza telefonem. Nowy kod zastępuje poprzedni.</string>
+    <string name="recovery_saved">Kod zapisany, kontynuuj</string>
+    <string name="recovery_code">Kod odzyskiwania</string>
+    <string name="forgot_password">Nie pamiętasz hasła?</string>
+    <string name="reset_password">Odzyskaj dostęp</string>
+    <string name="reset_success">Hasło zmienione. Zaloguj się nowym hasłem.</string>
+    <string name="reset_error">Dane są niezgodne lub kod odzyskiwania nie został jeszcze utworzony.</string>
+    <string name="credentials_error">Sprawdź aktualne hasło.</string>
+    <string name="login_throttled">Zbyt wiele prób. Poczekaj 30 sekund.</string>
+    <string name="password_changed">Hasło zmienione.</string>
+    <string name="security_note">Jedno konto na urządzeniu. Kod zastępuje odzyskiwanie dostępu przez email.</string>
+    <string name="back">Wstecz</string>
+    <string name="catalog_brand">KOLEKCJA NUTRIFIT</string>
+    <string name="allergy_label">Alergeny w składzie: %1$s</string>
+    <string name="no_listed_allergens">brak na liście; sprawdź opakowanie</string>
+    <string name="allergen_warning">To danie zawiera wybrany przez Ciebie alergen.</string>
+    <string name="open_weight">Historia masy ciała</string>
+    <string name="filter_reset">Wyczyść filtry</string>
+    <string name="saving">Zapisywanie…</string>
+    <string name="product_tag">PRODUKT</string>
+    <string name="recipe_tag">PRZEPIS</string>
+    <string name="all_content">Wszystko</string>
+    <string name="link_source">Źródło: %1$s</string>
+    <string name="recipe_saved">Dodano danie</string>
+    <string name="free_tag">BEZPŁATNIE</string>
+    <string name="plus_tag">PLUS</string>
+    <string name="video_badge">WIDEO</string>
+    <string name="lesson_reading">PRAKTYKA</string>
+    <string name="return_library">Wróć do katalogu</string>
+    <string name="plan_confirm_delete">Usunąć danie z planu? Istniejący wpis w dzienniku zostanie zachowany.</string>
+    <string name="language_title">Język interfejsu</string>
+    <string name="language_button">Język / Language</string>
+    <string name="language_note">Rosyjski, angielski i polski: cały katalog i wbudowane lekcje działają offline. Zewnętrzne filmy pozostają w języku autora.</string>
+    <string-array name="categories">
+        <item>Wszystkie przepisy</item>
+        <item>Owsianki i śniadania</item>
+        <item>Omlety</item>
+        <item>Sałatki</item>
+        <item>Zupy</item>
+        <item>Makaron</item>
+        <item>Bowle</item>
+        <item>Drób</item>
+        <item>Ryby</item>
+        <item>Dania roślinne</item>
+        <item>Tosty i przekąski</item>
+        <item>Napoje</item>
+        <item>Desery</item>
+    </string-array>
+    <string-array name="diets">
+        <item>Dowolny skład</item>
+        <item>Wegetariańskie</item>
+        <item>Wegańskie</item>
+        <item>Bez składników mlecznych</item>
+        <item>Bez składników glutenowych</item>
+    </string-array>
+    <string-array name="sorts">
+        <item>Według nazwy</item>
+        <item>Najszybsze najpierw</item>
+        <item>Najmniej kalorii najpierw</item>
+    </string-array>
+    <string name="demo_entry">Zobacz demo bez hasła</string>
+    <string name="demo_note">Nie pamiętasz hasła? Wypróbuj aplikację w osobnym profilu demo. Twoje prywatne wpisy pozostaną bez zmian.</string>
+    <string name="demo_name">Demo</string>
+    <string name="demo_account">Profil demo · dane oddzielone od konta</string>
+    <string name="demo_badge">DEMO · osobne dane</string>
+    <string name="demo_exit">Wyjdź z demo</string>
+    <string name="demo_exit_note">Wrócić do logowania? Wpisy demo pozostaną zapisane osobno. Konto osobiste nadal wymaga hasła lub kodu odzyskiwania.</string>
+</resources>

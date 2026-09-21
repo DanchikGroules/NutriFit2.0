@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/detail_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+            <TextView
+                android:id="@+id/detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Title"
+                android:text="@string/app_name" />
+            <TextView
+                android:id="@+id/detail_meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/recipe_portion" />
+            <TextView
+                android:id="@+id/detail_nutrition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Section"
+                android:text="@string/recipe_nutrition" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Field"
+                android:hint="@string/servings">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/servings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:maxLength="128"
+                    android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/detail_scaled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/recipe_nutrition" />
+            <TextView
+                android:id="@+id/meal_caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/meal_prompt" />
+            <Spinner
+                android:id="@+id/detail_meal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/detail_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/diary"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/detail_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/diary_recipe"
+                style="@style/Action" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/detail_plan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/plan_recipe"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+            <TextView
+                android:id="@+id/ingredients_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Section"
+                android:text="@string/recipe_ingredients" />
+            <TextView
+                android:id="@+id/detail_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/recipe_ingredients" />
+            <TextView
+                android:id="@+id/steps_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Section"
+                android:text="@string/recipe_steps" />
+            <TextView
+                android:id="@+id/detail_steps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/recipe_steps" />
+            <TextView
+                android:id="@+id/detail_allergens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/allergy_label" />
+            <TextView
+                android:id="@+id/detail_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/nutrition_note" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

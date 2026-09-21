@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <TextView
+        android:id="@+id/learn_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Title"
+        android:text="@string/learn_title" />
+    <TextView
+        android:id="@+id/learn_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="@string/learn_subtitle" />
+    <TextView
+        android:id="@+id/lesson_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="@string/learn_progress" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_plus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/premium_open"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
+    <TextView
+        android:id="@+id/own_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Section"
+        android:text="@string/learn_own" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/lesson_rows" />
+    <TextView
+        android:id="@+id/external_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Section"
+        android:text="@string/learn_external" />
+    <TextView
+        android:id="@+id/external_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="@string/video_note" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/video_rows" />
+</LinearLayout>

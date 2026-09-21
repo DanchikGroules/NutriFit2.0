@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+    <TextView
+        android:id="@+id/greeting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/today_title"
+        style="@style/Title" />
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/today_title"
+        style="@style/Body" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/diary"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:strokeWidth="0dp"
+        app:cardElevation="0dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <TextView
+                android:id="@+id/energy_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_energy"
+                style="@style/Body"
+                android:textColor="@color/primary"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/calories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_energy"
+                style="@style/Title" />
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/calorie_progress"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginBottom="16dp"
+                app:trackThickness="10dp"
+                app:trackCornerRadius="5dp"
+                android:max="100" />
+            <TextView
+                android:id="@+id/remaining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_energy"
+                style="@style/Body" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/protein_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/protein"
+                        style="@style/Body" />
+                    <TextView
+                        android:id="@+id/protein_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        style="@style/Body"
+                        android:textColor="@color/ink"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/fat_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fat"
+                        style="@style/Body" />
+                    <TextView
+                        android:id="@+id/fat_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        style="@style/Body"
+                        android:textColor="@color/ink"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/carbs_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/carbs"
+                        style="@style/Body" />
+                    <TextView
+                        android:id="@+id/carbs_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        style="@style/Body"
+                        android:textColor="@color/ink"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/past_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/past_note"
+        style="@style/Body"
+        android:visibility="gone" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_food"
+        style="@style/Action" />
+    <TextView
+        android:id="@+id/meals_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/meals_title"
+        style="@style/Section" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/entries" />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="28dp"
+        app:strokeWidth="0dp"
+        app:cardElevation="0dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="22dp">
+            <TextView
+                android:id="@+id/water_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Section"
+                android:text="@string/water_title" />
+            <TextView
+                android:id="@+id/water_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Title"
+                android:text="@string/water_value" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/water_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/water_add"
+                style="@style/Action" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/water_remove"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/water_remove"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+            <TextView
+                android:id="@+id/water_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/water_note" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="28dp"
+        app:strokeWidth="0dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/primary">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="148dp"
+                android:src="@drawable/food_cover"
+                android:scaleType="centerCrop"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:id="@+id/discover_eyebrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/catalog_brand"
+                android:textColor="#D9EDB9"
+                android:textSize="11sp" />
+            <TextView
+                android:id="@+id/discover_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Title"
+                android:text="@string/discover_title"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+            <TextView
+                android:id="@+id/discover_copy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="@string/discover_hint"
+                android:textColor="#FFFFFF" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/discover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/discover_action"
+                style="@style/Action" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/suggestions_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/suggestions_title"
+        style="@style/Section" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/suggestions" />
+    <TextView
+        android:id="@+id/catalog_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/catalog_note"
+        style="@style/Body" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/view_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_progress"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
+</LinearLayout>
