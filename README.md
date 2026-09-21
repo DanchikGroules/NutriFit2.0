@@ -41,10 +41,10 @@ Struktura
 Trzy główne foldery: app — aplikacja, gradle — system budowania, project — dokumentacja i narzędzia pomocnicze.
 
 app/src/main/java/com/nutrifit/app/
-  ui/       ekrany i okna dialogowe
-  data/     SQLite, konto, profil, repozytorium
-  model/    modele danych
-  domain/   obliczenia, filtry, reguły konta
+ui/       ekrany i okna dialogowe
+data/     SQLite, konto, profil, repozytorium
+model/    modele danych
+domain/   obliczenia, filtry, reguły konta
 app/src/main/assets/       catalog.db — gotowa baza SQLite
 app/src/main/res/layout/   ekrany XML i karty
 app/src/main/res/values/   ciągi tekstowe, listy, motyw i kolory
@@ -55,15 +55,16 @@ project/                   dokumentacja, skrypty, źródła tłumaczeń
 project/screenshots/       zrzuty ekranu interfejsu do dokumentacji
 
 
+
 W folderze project przeznaczenie plików wynika z ich nazw:
 
-*.md — architektura, źródła, testy i scenariusz prezentacji.
+\*.md — architektura, źródła, testy i scenariusz prezentacji.
 
-catalog_schema.sql — schemat katalogu; check_database.py — kontrola integralności, relacji i zawartości SQLite.
+catalog\_schema.sql — schemat katalogu; check\_database.py — kontrola integralności, relacji i zawartości SQLite.
 
-check_translations.py, emulator_check.py — skrypty kontrolne.
+check\_translations.py, emulator\_check.py — skrypty kontrolne.
 
-format_resources.py — formatowanie XML; package_project.py — pakowanie gotowej wersji i kodu źródłowego.
+format\_resources.py — formatowanie XML; package\_project.py — pakowanie gotowej wersji i kodu źródłowego.
 
 W katalogu głównym znajdują się README.md, ustawienia Gradle oraz skrypty uruchamiania gradlew / gradlew.bat. Folder delivery/ jest przeznaczony na gotowe pliki APK i ZIP. Foldery build/, app/build/, .gradle/, .idea/ są tworzone przez narzędzia i wykluczone z Git, podobnie jak lokalny plik local.properties. Nie trzeba ich usuwać w celu uproszczenia kodu źródłowego: przy następnym budowaniu zostaną utworzone ponownie.
 
@@ -72,11 +73,12 @@ Struktura app/src jest standardowa dla Android Studio. W kodzie Java zachowano c
 Teksty interfejsu znajdują się w strings.xml, a listy wyboru w zasobach XML. Przepisy, produkty, składniki, kroki, lekcje i tłumaczenia są przechowywane w app/src/main/assets/catalog.db. Nie ma plików JSON ani pól JSON w bazie. Instrukcja edycji katalogu i migracji: [DATABASE.md](project/DATABASE.md).
 
 Budowanie i testy
-.\gradlew.bat assembleDebug testDebugUnitTest lintDebug
-.\gradlew.bat assembleQa connectedQaAndroidTest
-python project/check_database.py
-python project/check_translations.py
-python project/package_project.py
+.\\gradlew.bat assembleDebug testDebugUnitTest lintDebug
+.\\gradlew.bat assembleQa connectedQaAndroidTest
+python project/check\_database.py
+python project/check\_translations.py
+python project/package\_project.py
+
 
 
 Drugie polecenie wymaga podłączonego emulatora. Wariant qa używa osobnego pakietu com.nutrifit.app.qa. Testy dodatkowo izolują swoje bazy danych i ustawienia za pomocą losowych nazw.
@@ -94,3 +96,6 @@ B/T/W, masa gotowego dania oraz czas przygotowania są wartościami demonstracyj
 Szczegóły: [architektura](project/IMPLEMENTATION.md), [źródła](project/SOURCES.md), [testy](project/TESTING.md), [scenariusz prezentacji](project/PROJECT.md).
 
 Szczegóły dotyczące tłumaczeń, optymalizacji i animacji: [LOCALIZATION.md](project/LOCALIZATION.md).
+
+хуй пизда пизда
+
