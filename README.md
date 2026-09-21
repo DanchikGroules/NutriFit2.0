@@ -1,86 +1,96 @@
-# NutriFit 2.3
+NutriFit 2.3
 
-Школьное Android-приложение на Java, XML и Material 3. Аккаунт и данные остаются внутри телефона. Сервер запускать не нужно.
+Szkolna aplikacja na Androida napisana w Java, XML i Material 3. Konto i dane pozostają na urządzeniu. Uruchamianie serwera nie jest wymagane.
 
-## Возможности
+Funkcje
 
-- 120 рецептов в 12 категориях и 100 продуктов. Ингредиенты, шаги приготовления, порции, ориентировочные калории и БЖУ.
-- Поиск по названию и ингредиентам, категории, фильтры питания и аллергенов, избранное.
-- Дневник по датам, вес и график, учёт воды, профиль и рекомендации.
-- Локальная регистрация, вход, смена пароля, восстановление по сохранённому коду.
-- Демо NutriFit Plus: план питания по датам, перенос съеденного в дневник, автоматический список покупок, дополнительные уроки. Включается бесплатно, никаких списаний.
-- 6 встроенных текстовых уроков и 8 ссылок на видеоматериалы авторов. Можно прикрепить своё видео через системный выбор файла и воспроизводить его внутри приложения.
-- Светлая палитра, зелёные акценты, цветные карточки каталога, фотографическая обложка, пять разделов навигации.
+120 przepisów w 12 kategoriach i 100 produktów. Składniki, kroki przygotowania, liczba porcji, orientacyjna kaloryczność oraz Białko/Tłuszcze/Węglowodany (B/T/W).
 
-## Языки
+Wyszukiwanie według nazwy i składników, kategorie, filtry żywieniowe i alergenów, ulubione.
 
-Переключатель «Язык / Language» доступен на экране входа и в профиле. Русский, английский и польский интерфейс; выбор сохраняется средствами Android/AppCompat. Меняются также даты и названия приёмов пищи. Рецепты, продукты, ингредиенты, инструкции и встроенные уроки полностью переведены. API Google ML Kit переводит контент на телефоне. При выборе английского или польского нажмите «Подготовить перевод»: модели скачиваются по Wi-Fi один раз, затем перевод работает офлайн. Результаты сохраняются в SQLite. До загрузки моделей доступны встроенные переводы из базы. Звуковая дорожка внешних видео остаётся на языке автора. Переводы интерфейса: `res/values-en/strings.xml` и `res/values-pl/strings.xml`.
+Dziennik z podziałem na daty, masa ciała i wykres, kontrola spożycia wody, profil i zalecenia.
 
-## Запуск
+Lokalna rejestracja, logowanie, zmiana hasła, odzyskiwanie za pomocą zapisanego kodu.
 
-1. Откройте папку с `settings.gradle` в Android Studio.
-2. Установите SDK Platform 36, выберите JDK 17+ (проверено на JBR 21), выполните Gradle Sync.
-3. Запустите модуль app, вариант debug, на Android 8.0+.
-4. Зарегистрируйтесь, сохраните показанный код восстановления, заполните демонстрационный профиль.
-5. Откройте «План» и включите демо Plus для знакомства с дополнительными функциями.
+Demo NutriFit Plus: plan żywieniowy według dat, przenoszenie zjedzonych posiłków do dziennika, automatyczna lista zakupów, dodatkowe lekcje. Funkcja jest włączana bezpłatnie i nie powoduje żadnych opłat.
 
-Готовые файлы: `delivery/NutriFit-2.3-debug.apk` и `delivery/NutriFit-AndroidStudio.zip`. APK подписан отладочным ключом, для школьной демонстрации. ZIP не содержит кешей сборки и локальных путей SDK.
+6 wbudowanych lekcji tekstowych i 8 linków do materiałów wideo autorów. Można dołączyć własny film za pomocą systemowego wyboru pliku i odtwarzać go wewnątrz aplikacji.
 
-## Структура
+Jasna paleta kolorów, zielone akcenty, kolorowe karty katalogu, fotograficzna okładka, pięć sekcji nawigacji.
 
-Три основные папки: `app` — приложение, `gradle` — сборка, `project` — документация и вспомогательные инструменты.
+Języki
 
-```text
+Przełącznik „Język / Language” jest dostępny na ekranie logowania oraz w profilu. Interfejs jest dostępny w języku rosyjskim, angielskim i polskim; wybór jest zapisywany za pomocą mechanizmów Android/AppCompat. Zmieniane są również formaty dat oraz nazwy posiłków. Przepisy, produkty, składniki, instrukcje i wbudowane lekcje są w pełni przetłumaczone. API Google ML Kit tłumaczy treści na telefonie. Po wybraniu języka angielskiego lub polskiego naciśnij „Przygotuj tłumaczenie”. Modele pobierane są przez Wi-Fi, a wyniki zapisywane w SQLite. Po pobraniu modeli tłumaczenie działa offline. Przed pobraniem można korzystać z wbudowanych tłumaczeń w bazie. Tłumaczenie maszynowe może być niedokładne. Ścieżka dźwiękowa zewnętrznych filmów pozostaje w języku autora. Tłumaczenia interfejsu znajdują się w res/values-en/strings.xml i res/values-pl/strings.xml.
+
+Uruchomienie
+
+Otwórz folder zawierający settings.gradle w Android Studio.
+
+Zainstaluj SDK Platform 36, wybierz JDK 17+ (sprawdzone na JBR 21), a następnie wykonaj Gradle Sync.
+
+Uruchom moduł app, wariant debug, na Androidzie 8.0 lub nowszym.
+
+Zarejestruj się, zapisz wyświetlony kod odzyskiwania i uzupełnij demonstracyjny profil.
+
+Otwórz „Plan” i włącz demo Plus, aby zapoznać się z dodatkowymi funkcjami.
+
+Gotowe pliki: delivery/NutriFit-2.3-debug.apk oraz delivery/NutriFit-AndroidStudio.zip. APK jest podpisany kluczem debugowym i przeznaczony do demonstracji szkolnej. ZIP nie zawiera pamięci podręcznych kompilacji ani lokalnych ścieżek do SDK.
+
+Struktura
+
+Trzy główne foldery: app — aplikacja, gradle — system budowania, project — dokumentacja i narzędzia pomocnicze.
+
 app/src/main/java/com/nutrifit/app/
-  ui/       экраны и диалоги
-  data/     SQLite, аккаунт, профиль, репозиторий
-  model/    модели данных
-  domain/   расчёты, фильтры, правила аккаунта
-app/src/main/assets/       catalog.db — готовая SQLite-база
-app/src/main/res/layout/   XML-экраны и карточки
-app/src/main/res/values/   строки, списки, тема и цвета
-app/src/test/              модульные тесты
-app/src/androidTest/       проверки SQLite и аккаунта на устройстве
-gradle/wrapper/            запуск нужной версии Gradle
-project/                   документация, скрипты, исходники переводов
-project/screenshots/       снимки интерфейса для документации
-```
+  ui/       ekrany i okna dialogowe
+  data/     SQLite, konto, profil, repozytorium
+  model/    modele danych
+  domain/   obliczenia, filtry, reguły konta
+app/src/main/assets/       catalog.db — gotowa baza SQLite
+app/src/main/res/layout/   ekrany XML i karty
+app/src/main/res/values/   ciągi tekstowe, listy, motyw i kolory
+app/src/test/              testy jednostkowe
+app/src/androidTest/       testy SQLite i konta na urządzeniu
+gradle/wrapper/            uruchamianie wymaganej wersji Gradle
+project/                   dokumentacja, skrypty, źródła tłumaczeń
+project/screenshots/       zrzuty ekranu interfejsu do dokumentacji
 
-В папке `project` назначение файлов видно по имени:
 
-- `*.md` — архитектура, источники, проверки и сценарий защиты.
-- `catalog_schema.sql` — схема каталога; `check_database.py` — проверка SQLite, связей и полноты контента.
-- `check_translations.py`, `emulator_check.py` — проверки.
-- `format_resources.py` — форматирование XML; `package_project.py` — упаковка готовой сборки и исходников.
+W folderze project przeznaczenie plików wynika z ich nazw:
 
-В корне находятся `README.md`, настройки Gradle и команды запуска `gradlew` / `gradlew.bat`. Папка `delivery/` предназначена для готовых APK и ZIP. Папки `build/`, `app/build/`, `.gradle/`, `.idea/` создаются инструментами и исключены из Git, как и локальный файл `local.properties`. Удалять их для упрощения исходников не требуется: при следующей сборке они появятся снова.
+*.md — architektura, źródła, testy i scenariusz prezentacji.
 
-Структура `app/src` стандартная для Android Studio. Внутри Java сохранены четыре раздела: экраны, данные, модели и логика. В Android Studio выбирайте представление **Android** — оно показывает пакеты и ресурсы компактным деревом.
+catalog_schema.sql — schemat katalogu; check_database.py — kontrola integralności, relacji i zawartości SQLite.
 
-Строки интерфейса находятся в `strings.xml`, списки выбора — в XML-ресурсах values. Рецепты, продукты, ингредиенты, шаги, уроки и переводы хранятся в `app/src/main/assets/catalog.db`. JSON-файлов и JSON-полей в рабочей базе нет. Как редактировать каталог и выпускать обновления: [DATABASE.md](project/DATABASE.md).
+check_translations.py, emulator_check.py — skrypty kontrolne.
 
-## Сборка и проверки
+format_resources.py — formatowanie XML; package_project.py — pakowanie gotowej wersji i kodu źródłowego.
 
-```powershell
+W katalogu głównym znajdują się README.md, ustawienia Gradle oraz skrypty uruchamiania gradlew / gradlew.bat. Folder delivery/ jest przeznaczony na gotowe pliki APK i ZIP. Foldery build/, app/build/, .gradle/, .idea/ są tworzone przez narzędzia i wykluczone z Git, podobnie jak lokalny plik local.properties. Nie trzeba ich usuwać w celu uproszczenia kodu źródłowego: przy następnym budowaniu zostaną utworzone ponownie.
+
+Struktura app/src jest standardowa dla Android Studio. W kodzie Java zachowano cztery sekcje: ekrany, dane, modele i logika. W Android Studio wybierz widok Android — pokazuje on pakiety i zasoby w kompaktowym drzewie.
+
+Teksty interfejsu znajdują się w strings.xml, a listy wyboru w zasobach XML. Przepisy, produkty, składniki, kroki, lekcje i tłumaczenia są przechowywane w app/src/main/assets/catalog.db. Nie ma plików JSON ani pól JSON w bazie. Instrukcja edycji katalogu i migracji: [DATABASE.md](project/DATABASE.md).
+
+Budowanie i testy
 .\gradlew.bat assembleDebug testDebugUnitTest lintDebug
 .\gradlew.bat assembleQa connectedQaAndroidTest
 python project/check_database.py
 python project/check_translations.py
 python project/package_project.py
-```
 
-Вторая команда требует подключённого эмулятора. Вариант qa использует отдельный пакет `com.nutrifit.app.qa`. Тесты дополнительно изолируют свои базы и настройки случайными именами.
 
-## Работа без интернета
+Drugie polecenie wymaga podłączonego emulatora. Wariant qa używa osobnego pakietu com.nutrifit.app.qa. Testy dodatkowo izolują swoje bazy danych i ustawienia za pomocą losowych nazw.
 
-SQLite хранит каталог, избранное, дневник, план, покупки, воду, вес и прогресс уроков. Приватные SharedPreferences хранят профиль, демонстрационный доступ Plus, соль и хеш пароля/кода восстановления. Пароль и код не сохраняются открытым текстом. Хеширование и операции базы выполняются вне главного потока.
+Działanie bez internetu
 
-Интернет используется ML Kit для загрузки языковых моделей; тексты переводятся на устройстве. Сам аккаунт, дневник и каталог работают без сервера. SDK может передавать Google служебные диагностические данные; это не облачная отправка текста на перевод. Внешние видео открываются по нажатию в браузере или приложении видеоплатформы и требуют интернет. Встроенные уроки и каталог доступны офлайн. Локальное видео доступно, пока выбранный файл существует и система предоставляет доступ к нему.
+SQLite przechowuje katalog, ulubione, dziennik, plan, zakupy, wodę, masę ciała oraz postęp w lekcjach. Prywatne SharedPreferences przechowują profil, dostęp demonstracyjny Plus, sól oraz hash hasła/kodu odzyskiwania. Hasło i kod nie są przechowywane w postaci jawnej. Haszowanie oraz operacje na bazie danych wykonywane są poza głównym wątkiem.
 
-Один личный аккаунт и отдельный демо-профиль без пароля на установку. Демо использует отдельные файлы базы и настроек. Удаление приложения удаляет его данные; облачное копирование и перенос отключены. Старые аккаунты могут создать код восстановления в профиле, введя действующий пароль.
+Internet służy ML Kit do pobierania modeli językowych. Teksty tłumaczone są na urządzeniu; konto, dziennik i katalog nie wymagają serwera. SDK przesyła Google techniczne metryki działania, ale nie wysyła tekstów do tłumaczenia w chmurze. Zewnętrzne filmy są otwierane po kliknięciu w przeglądarce lub aplikacji platformy wideo i wymagają dostępu do internetu. Wbudowane lekcje i katalog są dostępne offline. Lokalne wideo jest dostępne, dopóki wybrany plik istnieje, a system udostępnia do niego dostęp.
 
-БЖУ, выход блюда и время приготовления — демонстрационные оценки, зависящие от продуктов и способа приготовления. Фильтр учитывает указанные ингредиенты; состав упаковки и возможные следы аллергенов нужно проверять отдельно. Расчёт профиля предназначен для взрослого демонстрационного сценария, не для медицинских назначений.
+Jedno konto osobiste oraz osobny profil demo bez hasła na instalację. Demo używa oddzielnych plików bazy i ustawień. Usunięcie aplikacji usuwa jej dane; kopie zapasowe w chmurze oraz przenoszenie danych są wyłączone. Istniejące konta mogą utworzyć kod odzyskiwania w profilu po wprowadzeniu aktualnego hasła.
 
-Подробности: [архитектура](project/IMPLEMENTATION.md), [источники](project/SOURCES.md), [проверки](project/TESTING.md), [сценарий защиты](project/PROJECT.md).
+B/T/W, masa gotowego dania oraz czas przygotowania są wartościami demonstracyjnymi zależnymi od produktów i sposobu przygotowania. Filtr uwzględnia wskazane składniki; skład opakowania oraz możliwe śladowe ilości alergenów należy sprawdzać osobno. Obliczenia profilu są przeznaczone dla demonstracyjnego scenariusza dla osoby dorosłej, a nie do celów medycznych.
 
-Подробности перевода, оптимизаций и анимации: [LOCALIZATION.md](project/LOCALIZATION.md).
+Szczegóły: [architektura](project/IMPLEMENTATION.md), [źródła](project/SOURCES.md), [testy](project/TESTING.md), [scenariusz prezentacji](project/PROJECT.md).
+
+Szczegóły dotyczące tłumaczeń, optymalizacji i animacji: [LOCALIZATION.md](project/LOCALIZATION.md).
