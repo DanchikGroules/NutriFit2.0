@@ -8,11 +8,11 @@
 
 ## Как обновлять
 
-- `tools/content_titles.txt`: стабильный ID продукта/рецепта, английское и польское название, разделитель `|`.
-- `tools/content_steps.json`: исходный русский шаг и оба перевода. Перевод привязан к тексту, а не к позиции рецепта.
-- `tools/content_lessons.json`: переводы уроков и подписей видео по ID.
-- `python tools/build_content_translations.py`: собирает `app/src/main/assets/translations/en.json` и `pl.json`.
-- `python tools/check_translations.py`: проверяет ресурсы интерфейса.
+- `project/content_titles.txt`: стабильный ID продукта/рецепта, английское и польское название, разделитель `|`.
+- `project/content_steps.json`: исходный русский шаг и оба перевода. Перевод привязан к тексту, а не к позиции рецепта.
+- `project/content_lessons.json`: переводы уроков и подписей видео по ID.
+- `python project/build_content_translations.py`: собирает `app/src/main/assets/translations/en.json` и `pl.json`.
+- `python project/check_translations.py`: проверяет ресурсы интерфейса.
 - `gradlew.bat testDebugUnitTest`: проверяет полноту перевода контента, числовые значения и переключение подписей старых записей.
 
 Для новых рецептов добавляйте новые стабильные ID и переводы. Обновление самого исходного каталога в уже установленной базе требует отдельной миграции наполнения; обновление переводов в APK её не требует.

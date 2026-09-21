@@ -15,7 +15,7 @@ files = [root / name for name in (
     "README.md", ".gitignore", "build.gradle", "settings.gradle",
     "gradle.properties", "gradlew", "gradlew.bat", "app/build.gradle"
 )]
-for directory in ("app/src", "gradle/wrapper", "docs", "tools"):
+for directory in ("app/src", "gradle/wrapper", "project"):
     files.extend(p for p in (root / directory).rglob("*")
                  if p.is_file() and "__pycache__" not in p.parts
                  and p.suffix not in (".pyc", ".tmp"))

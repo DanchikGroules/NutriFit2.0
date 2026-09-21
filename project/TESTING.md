@@ -37,8 +37,8 @@
 .\gradlew.bat assembleDebug assembleQa testDebugUnitTest lintDebug
 $env:ANDROID_SERIAL='emulator-5554'
 .\gradlew.bat connectedQaAndroidTest '-Pandroid.injected.device.serial=emulator-5554'
-python tools/check_translations.py
-python tools/package_project.py
+python project/check_translations.py
+python project/package_project.py
 ```
 
 Инструментальным тестам нужен подключённый эмулятор. Они используют отдельные случайные имена базы и настроек. Данные аккаунтов и дампы базы не входят в ZIP.

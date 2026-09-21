@@ -2,7 +2,7 @@
 import os,re,subprocess,sys,time,xml.etree.ElementTree as ET
 from pathlib import Path
 sys.stdout.reconfigure(encoding='utf-8')
-adb=str(Path(os.environ.get('ANDROID_HOME',Path.home()/'AppData/Local/Android/Sdk'))/'platform-tools/adb.exe')
+adb=str(Path(os.environ.get('ANDROID_HOME',Path.home()/'AppData/Local/Android/Sdk'))/'platform-project/adb.exe')
 def call(*args):return subprocess.check_output([adb,"-s","emulator-5554",*args]).decode('utf-8',errors='replace')
 def tree():
     for _ in range(4):
