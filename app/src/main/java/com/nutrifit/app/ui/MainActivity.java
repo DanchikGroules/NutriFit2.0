@@ -60,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
     Ui.insets(findViewById(R.id.root));
     content = findViewById(R.id.content);
     navigation = findViewById(R.id.navigation);
-    if(repo.isDemo)((com.google.android.material.appbar.MaterialToolbar)findViewById(R.id.toolbar)).setSubtitle(R.string.demo_badge);
+    if (repo.isDemo)
+      ((com.google.android.material.appbar.MaterialToolbar) findViewById(R.id.toolbar))
+          .setSubtitle(R.string.demo_badge);
     if (state != null) {
       day = LocalDate.parse(state.getString("day", day.toString()));
       current = state.getInt("screen", current);

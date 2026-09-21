@@ -1,31 +1,35 @@
 package com.nutrifit.app.data;
 
 import android.content.Context;
+import android.database.Cursor;
 import com.nutrifit.app.model.Lesson;
-import java.io.*;
 import java.util.*;
-import org.json.JSONArray;
 
 public final class LessonCatalog {
-  private static final Map<String, List<Lesson>> cache = new HashMap<>();
-
-  public static synchronized List<Lesson> load(Context context) throws Exception {
-    String language = ContentTranslations.language(context);
-    if (cache.containsKey(language)) return cache.get(language);
-    com.nutrifit.app.domain.ContentLocalizer localizer =
-        ContentTranslations.load(context, language);
-    try (InputStream stream = context.getAssets().open("lessons.json")) {
-      ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-      byte[] buffer = new byte[4096];
-      int n;
-      while ((n = stream.read(buffer)) != -1) bytes.write(buffer, 0, n);
-      JSONArray array = new JSONArray(bytes.toString("UTF-8"));
-      List<Lesson> result = new ArrayList<>();
-      for (int i = 0; i < array.length(); i++)
-        result.add(new Lesson(localizer.payload(array.getJSONObject(i))));
-      List<Lesson> saved = Collections.unmodifiableList(result);
-      cache.put(language, saved);
-      return saved;
+  public static List<Lesson> load(Context context) {
+    String column = ContentTranslations.language(context);
+    List<Lesson> result = new ArrayList<>();
+    String query =
+        "SELECT l.id,"
+            + ContentTranslations.expression("t", column)
+            + ","
+            + ContentTranslations.expression("a", column)
+            + ","
+            + ContentTranslations.expression("b", column)
+            + ",l.url,l.premium FROM lessons l JOIN catalog_text t ON t.source=l.title JOIN"
+            + " catalog_text a ON a.source=l.author JOIN catalog_text b ON b.source=l.body ORDER BY"
+            + " l.position";
+    try (Cursor c = LocalRepository.get(context).db.getReadableDatabase().rawQuery(query, null)) {
+      while (c.moveToNext())
+        result.add(
+            new Lesson(
+                c.getString(0),
+                c.getString(1),
+                c.getString(2),
+                c.getString(3),
+                c.getString(4),
+                c.getInt(5) == 1));
     }
+    return Collections.unmodifiableList(result);
   }
 }

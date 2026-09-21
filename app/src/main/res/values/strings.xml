@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">NutriFit</string>
     <string name="tagline">Питание в вашем ритме</string>
@@ -13,7 +13,7 @@
     <string name="confirm_password">Повторите пароль</string>
     <string name="register">Создать аккаунт</string>
     <string name="login">Войти</string>
-    <string name="privacy">Без облака и отправки данных. Один аккаунт на этом устройстве. Email используется только для входа; восстановление возможно по резервному коду.</string>
+    <string name="privacy">Аккаунт и дневник хранятся только на телефоне. Email нужен для входа, резервный код — для восстановления. ML Kit переводит тексты на устройстве и отправляет Google технические метрики работы SDK.</string>
     <string name="password_help">От 8 до 128 символов</string>
     <string name="name_error">Введите имя: от 1 до 50 символов.</string>
     <string name="email_error">Введите корректный email.</string>
@@ -299,4 +299,14 @@
     <string name="demo_badge">ДЕМО · отдельные данные</string>
     <string name="demo_exit">Выйти из демо</string>
     <string name="demo_exit_note">Вернуться ко входу? Демо-записи сохранятся отдельно. Для личного аккаунта по-прежнему нужен пароль или резервный код.</string>
+    <string name="translation_title">Перевод на устройстве</string>
+    <string name="translation_note">ML Kit переведёт названия, ингредиенты, шаги и уроки на телефоне. Для первой загрузки моделей нужен Wi-Fi: примерно 30 МБ на язык. Результат сохраняется в SQLite и работает офлайн. Машинный перевод может быть неточным.</string>
+    <string name="translation_start">Подготовить перевод</string>
+    <string name="translation_offline">Продолжить без загрузки</string>
+    <string name="translation_ready">Вы можете подготовить перевод или сразу открыть встроенный каталог.</string>
+    <string name="translation_downloading">Подготовка языковых моделей… Подключитесь к Wi-Fi.</string>
+    <string name="translation_working">Переводим каталог на телефоне…</string>
+    <string name="translation_count">Переведено: %1$d из %2$d</string>
+    <string name="translation_error">Не удалось подготовить перевод. Проверьте Wi-Fi и свободное место, затем повторите. Встроенные переводы доступны без загрузки.</string>
+    <string name="translation_retry">Повторить</string>
 </resources>

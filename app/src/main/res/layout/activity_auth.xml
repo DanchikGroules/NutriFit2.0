@@ -35,8 +35,18 @@
             android:text="@string/language_note"
             style="@style/Body"
             android:textSize="12sp" />
-        <com.google.android.material.button.MaterialButton android:id="@+id/demo_entry" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/demo_entry" style="@style/Action" app:icon="@drawable/ic_play" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/demo_note" style="@style/Body" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/demo_entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/demo_entry"
+            style="@style/Action"
+            app:icon="@drawable/ic_play" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/demo_note"
+            style="@style/Body" />
         <Space android:layout_width="1dp" android:layout_height="24dp" />
         <TextView
             android:id="@+id/badge"

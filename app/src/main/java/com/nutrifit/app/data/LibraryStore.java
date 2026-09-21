@@ -5,20 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.nutrifit.app.model.Recipe;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.*;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 /** All methods run on LocalRepository.io. Catalog is seeded transactionally and queried locally. */
 public final class LibraryStore {
   private final AppDatabase helper;
   private final Context context;
   private List<Recipe> cache;
-  private List<JSONObject> payloads;
-  private List<Boolean> productFlags;
   private Map<String, Recipe> byId = Collections.emptyMap();
   private String language = "ru";
   private volatile com.nutrifit.app.domain.ContentLocalizer localizer;
@@ -44,16 +38,15 @@ public final class LibraryStore {
 
   public static void createSchema(SQLiteDatabase db) {
     db.execSQL(
-        "CREATE TABLE recipes(id TEXT PRIMARY KEY, payload TEXT NOT NULL, product INTEGER NOT NULL"
-            + " CHECK(product IN (0,1)))");
-    db.execSQL(
-        "CREATE TABLE favorites(recipe_id TEXT PRIMARY KEY REFERENCES recipes(id) ON DELETE"
+        "CREATE TABLE favorites(recipe_id TEXT PRIMARY KEY REFERENCES catalog_items(id) ON DELETE"
             + " CASCADE)");
     db.execSQL(
         "CREATE TABLE meal_plan(id INTEGER PRIMARY KEY AUTOINCREMENT, day TEXT NOT NULL, meal TEXT"
-            + " NOT NULL, recipe_id TEXT NOT NULL REFERENCES recipes(id), portions REAL NOT NULL"
-            + " CHECK(portions>0), consumed INTEGER NOT NULL DEFAULT 0 CHECK(consumed IN (0,1)))");
+            + " NOT NULL, recipe_id TEXT NOT NULL REFERENCES catalog_items(id), portions REAL NOT"
+            + " NULL CHECK(portions>0), consumed INTEGER NOT NULL DEFAULT 0 CHECK(consumed IN"
+            + " (0,1)))");
     db.execSQL("CREATE INDEX plan_day ON meal_plan(day)");
+    db.execSQL("CREATE INDEX plan_recipe ON meal_plan(recipe_id)");
     db.execSQL(
         "CREATE TABLE shopping_checks(day TEXT NOT NULL, item TEXT NOT NULL, checked INTEGER NOT"
             + " NULL DEFAULT 0, PRIMARY KEY(day,item))");
@@ -64,70 +57,87 @@ public final class LibraryStore {
         "CREATE TABLE lesson_progress(id TEXT PRIMARY KEY, completed INTEGER NOT NULL DEFAULT 0,"
             + " video_uri TEXT)");
     db.execSQL("CREATE TABLE app_meta(key TEXT PRIMARY KEY, value TEXT NOT NULL)");
+    db.execSQL("INSERT INTO app_meta(key,value) VALUES('catalog_version','3')");
+  }
+
+  public void invalidate() {
+    cache = null;
+    localizer = null;
+    byId = Collections.emptyMap();
   }
 
   public void initialize() throws Exception {
-    localizer = ContentTranslations.load(context, language);
-    SQLiteDatabase db = helper.getWritableDatabase();
-    try (Cursor c = db.rawQuery("SELECT value FROM app_meta WHERE key='catalog_version'", null)) {
-      if (!c.moveToFirst()) {
-        db.beginTransaction();
-        try {
-          for (String file : new String[] {"recipes.json", "products.json"}) {
-            boolean product = file.equals("products.json");
-            JSONArray data;
-            try (InputStream stream = context.getAssets().open(file)) {
-              java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
-              byte[] buffer = new byte[8192];
-              int n;
-              while ((n = stream.read(buffer)) != -1) out.write(buffer, 0, n);
-              data = new JSONArray(out.toString(StandardCharsets.UTF_8.name()));
-            }
-            for (int i = 0; i < data.length(); i++) {
-              JSONObject object = data.getJSONObject(i);
-              ContentValues values = new ContentValues();
-              values.put("id", (product ? "product_" : "") + object.getString("id"));
-              values.put("payload", object.toString());
-              values.put("product", product ? 1 : 0);
-              db.insertOrThrow("recipes", null, values);
-            }
-          }
-          db.execSQL("INSERT INTO app_meta(key,value) VALUES('catalog_version','1')");
-          db.setTransactionSuccessful();
-        } finally {
-          db.endTransaction();
-        }
-      }
+    if (cache == null) {
+      localizer = ContentTranslations.load(helper.getReadableDatabase(), language);
+      all();
     }
-    all();
   }
 
   public List<Recipe> all() throws Exception {
-    if (cache == null) {
-      List<Recipe> list = new ArrayList<>();
-      if (payloads == null) {
-        payloads = new ArrayList<>();
-        productFlags = new ArrayList<>();
-        try (Cursor c =
-            helper
-                .getReadableDatabase()
-                .rawQuery("SELECT payload,product FROM recipes ORDER BY id", null)) {
-          while (c.moveToNext()) {
-            payloads.add(new JSONObject(c.getString(0)));
-            productFlags.add(c.getInt(1) == 1);
-          }
-        }
-      }
-      if (localizer == null) localizer = ContentTranslations.load(context, language);
-      Map<String, Recipe> index = new HashMap<>();
-      for (int i = 0; i < payloads.size(); i++) {
-        Recipe recipe = new Recipe(localizer.payload(payloads.get(i)), productFlags.get(i));
-        list.add(recipe);
-        index.put(recipe.id, recipe);
-      }
-      byId = Collections.unmodifiableMap(index);
-      cache = Collections.unmodifiableList(list);
+    if (cache != null) return cache;
+    SQLiteDatabase db = helper.getReadableDatabase();
+    String text = ContentTranslations.expression("t", language);
+    Map<String, List<Recipe.Ingredient>> ingredients = new HashMap<>();
+    try (Cursor c =
+        db.rawQuery(
+            "SELECT i.recipe_id,i.product_id,"
+                + text
+                + ",i.grams FROM recipe_ingredients i JOIN catalog_items p ON p.id=i.product_id"
+                + " JOIN catalog_text t ON t.source=p.title ORDER BY i.recipe_id,i.position",
+            null)) {
+      while (c.moveToNext())
+        ingredients
+            .computeIfAbsent(c.getString(0), k -> new ArrayList<>())
+            .add(
+                new Recipe.Ingredient(
+                    c.getString(1).substring("product_".length()), c.getString(2), c.getDouble(3)));
     }
+    Map<String, List<String>> steps = new HashMap<>();
+    try (Cursor c =
+        db.rawQuery(
+            "SELECT s.recipe_id,"
+                + text
+                + " FROM recipe_steps s JOIN catalog_text t ON t.source=s.text_key ORDER BY"
+                + " s.recipe_id,s.position",
+            null)) {
+      while (c.moveToNext())
+        steps.computeIfAbsent(c.getString(0), k -> new ArrayList<>()).add(c.getString(1));
+    }
+    List<Recipe> list = new ArrayList<>();
+    Map<String, Recipe> index = new HashMap<>();
+    String query =
+        "SELECT r.id,"
+            + text
+            + ",r.category,r.product,r.minutes,r.grams,r.kcal,r.protein,r.fat,r.carbs,COALESCE(tags.value,''),COALESCE(a.value,'')"
+            + " FROM catalog_items r JOIN catalog_text t ON t.source=r.title LEFT JOIN (SELECT"
+            + " item_id,GROUP_CONCAT(tag) value FROM item_tags GROUP BY item_id) tags ON"
+            + " tags.item_id=r.id LEFT JOIN (SELECT item_id,GROUP_CONCAT(allergen) value FROM"
+            + " item_allergens GROUP BY item_id) a ON a.item_id=r.id ORDER BY r.id";
+    try (Cursor c = db.rawQuery(query, null)) {
+      while (c.moveToNext()) {
+        String id = c.getString(0);
+        Recipe recipe =
+            new Recipe(
+                id,
+                c.getString(1),
+                c.getString(2),
+                c.getInt(3) == 1,
+                c.getInt(4),
+                c.getDouble(5),
+                c.getDouble(6),
+                c.getDouble(7),
+                c.getDouble(8),
+                c.getDouble(9),
+                c.getString(10),
+                c.getString(11),
+                ingredients.getOrDefault(id, Collections.emptyList()),
+                steps.getOrDefault(id, Collections.emptyList()));
+        list.add(recipe);
+        index.put(id, recipe);
+      }
+    }
+    byId = Collections.unmodifiableMap(index);
+    cache = Collections.unmodifiableList(list);
     return cache;
   }
 

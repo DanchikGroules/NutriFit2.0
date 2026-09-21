@@ -2,13 +2,10 @@ package com.nutrifit.app.data;
 
 import android.content.Context;
 import com.nutrifit.app.domain.ContentLocalizer;
-import java.io.*;
 import java.util.*;
-import org.json.JSONObject;
 
 /** Read on the repository IO queue. The three immutable dictionaries are reused per process. */
 public final class ContentTranslations {
-  private static final Map<String, ContentLocalizer> cache = new HashMap<>();
 
   public static String language(Context context) {
     return supported(context.getResources().getConfiguration().getLocales().get(0).getLanguage());
@@ -18,24 +15,47 @@ public final class ContentTranslations {
     return tag.equals("en") || tag.equals("pl") ? tag : "ru";
   }
 
-  public static synchronized ContentLocalizer load(Context context, String language)
-      throws Exception {
-    if (cache.isEmpty()) {
-      JSONObject en = read(context, "translations/en.json"),
-          pl = read(context, "translations/pl.json");
-      for (String tag : new String[] {"ru", "en", "pl"})
-        cache.put(tag, new ContentLocalizer(tag, en, pl));
+  public static ContentLocalizer load(android.database.sqlite.SQLiteDatabase db, String language) {
+    Map<String, String> en = new HashMap<>(), pl = new HashMap<>();
+    try (android.database.Cursor c =
+        db.rawQuery(
+            "SELECT t.source,"
+                + expression("t", "en")
+                + ","
+                + expression("t", "pl")
+                + " FROM catalog_text t",
+            null)) {
+      while (c.moveToNext()) {
+        en.put(c.getString(0), c.getString(1));
+        pl.put(c.getString(0), c.getString(2));
+      }
     }
-    return cache.get(supported(language));
+    Map<String, String> historic = new HashMap<>();
+    try (android.database.Cursor c = db.rawQuery("SELECT source,en,pl FROM catalog_text", null)) {
+      while (c.moveToNext()) {
+        historic.putIfAbsent(c.getString(1), c.getString(0));
+        historic.putIfAbsent(c.getString(2), c.getString(0));
+      }
+    }
+    return new ContentLocalizer(supported(language), en, pl, historic);
   }
 
-  private static JSONObject read(Context context, String file) throws Exception {
-    try (InputStream stream = context.getAssets().open(file);
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream()) {
-      byte[] buffer = new byte[8192];
-      int count;
-      while ((count = stream.read(buffer)) != -1) bytes.write(buffer, 0, count);
-      return new JSONObject(bytes.toString("UTF-8"));
-    }
+  static String expression(String alias, String language) {
+    String column = column(language);
+    return column.equals("source")
+        ? alias + ".source"
+        : "COALESCE((SELECT m.text FROM machine_translations m WHERE m.source="
+            + alias
+            + ".source AND m.language='"
+            + column
+            + "'),"
+            + alias
+            + "."
+            + column
+            + ")";
+  }
+
+  static String column(String language) {
+    return supported(language).equals("ru") ? "source" : supported(language);
   }
 }

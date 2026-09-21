@@ -16,6 +16,148 @@ import org.junit.*;
 
 public class LocalStorageTest {
   @Test
+  public void versionTwoUpgradePreservesAccountPlansAndProgress() throws Exception {
+    LocalAccount account = new LocalAccount(context);
+    account.register("Owner", "owner@example.com", "password123".toCharArray());
+    SQLiteDatabase old = context.openOrCreateDatabase("nutrifit.db", 0, null);
+    old.execSQL(
+        "CREATE TABLE diary(id INTEGER PRIMARY KEY,day TEXT,meal TEXT,name TEXT,grams REAL,kcal"
+            + " REAL,protein REAL,fat REAL,carbs REAL)");
+    old.execSQL("CREATE TABLE weights(day TEXT PRIMARY KEY,kg REAL)");
+    old.execSQL(
+        "CREATE TABLE recipes(id TEXT PRIMARY KEY,payload TEXT NOT NULL,product INTEGER NOT NULL)");
+    old.execSQL(
+        "CREATE TABLE favorites(recipe_id TEXT PRIMARY KEY REFERENCES recipes(id) ON DELETE"
+            + " CASCADE)");
+    old.execSQL(
+        "CREATE TABLE meal_plan(id INTEGER PRIMARY KEY AUTOINCREMENT,day TEXT,meal TEXT,recipe_id"
+            + " TEXT REFERENCES recipes(id),portions REAL,consumed INTEGER)");
+    old.execSQL("CREATE INDEX plan_day ON meal_plan(day)");
+    old.execSQL(
+        "CREATE TABLE shopping_checks(day TEXT,item TEXT,checked INTEGER,PRIMARY KEY(day,item))");
+    old.execSQL("CREATE TABLE hydration(day TEXT PRIMARY KEY,ml INTEGER)");
+    old.execSQL(
+        "CREATE TABLE lesson_progress(id TEXT PRIMARY KEY,completed INTEGER,video_uri TEXT)");
+    old.execSQL("CREATE TABLE app_meta(key TEXT PRIMARY KEY,value TEXT)");
+    old.execSQL("INSERT INTO recipes VALUES('recipe_001','{}',0)");
+    old.execSQL("INSERT INTO favorites VALUES('recipe_001')");
+    old.execSQL("INSERT INTO meal_plan VALUES(42,'2026-01-01','breakfast','recipe_001',2,1)");
+    old.execSQL(
+        "INSERT INTO diary VALUES(1,'2026-01-01','breakfast','My breakfast',100,200,1,2,3)");
+    old.execSQL("INSERT INTO weights VALUES('2026-01-01',72)");
+    old.execSQL("INSERT INTO hydration VALUES('2026-01-01',500)");
+    old.execSQL("INSERT INTO shopping_checks VALUES('2026-01-01','oats',1)");
+    old.execSQL("INSERT INTO lesson_progress VALUES('basics',1,'content://saved/video')");
+    old.execSQL("INSERT INTO app_meta VALUES('catalog_version','1')");
+    old.setVersion(2);
+    old.close();
+    library.initialize("en");
+    assertEquals(3, db.getReadableDatabase().getVersion());
+    assertEquals(220, library.all().size());
+    assertTrue(library.favorites().contains("recipe_001"));
+    assertEquals(42, library.plans("2026-01-01").get(0).id);
+    assertTrue(library.plans("2026-01-01").get(0).consumed);
+    assertEquals(2, library.plans("2026-01-01").get(0).portions, 0);
+    assertEquals("My breakfast", db.diary("2026-01-01").get(0).name);
+    assertEquals(72, db.weights().get(0).kg, 0);
+    assertEquals(500, library.water("2026-01-01"));
+    assertTrue(library.completed("basics"));
+    assertEquals("content://saved/video", library.video("basics"));
+    try (android.database.Cursor c =
+        db.getReadableDatabase().rawQuery("PRAGMA foreign_key_check", null)) {
+      assertEquals(0, c.getCount());
+    }
+    try (android.database.Cursor c =
+        db.getReadableDatabase()
+            .rawQuery("SELECT name FROM sqlite_master WHERE name='recipes'", null)) {
+      assertEquals(0, c.getCount());
+    }
+    try (android.database.Cursor c =
+        db.getReadableDatabase()
+            .rawQuery("SELECT checked FROM shopping_checks WHERE item='oats'", null)) {
+      assertTrue(c.moveToFirst());
+      assertEquals(1, c.getInt(0));
+    }
+    account.logout();
+    assertTrue(account.login("owner@example.com", "password123".toCharArray()));
+    db.close();
+    db = new AppDatabase(context);
+    library = new LibraryStore(context, db);
+    library.initialize("pl");
+    assertEquals(42, library.plans("2026-01-01").get(0).id);
+  }
+
+  @Test
+  public void machineTranslationsAreCachedAndFailedBatchRollsBack() throws Exception {
+    library.initialize("ru");
+    String source = library.recipe("recipe_001").title;
+    TranslationStore store = new TranslationStore(db.getWritableDatabase());
+    int before = store.pending("en").size();
+    store.save("en", java.util.Collections.singletonMap(source, "Machine oatmeal"));
+    assertEquals(before - 1, store.pending("en").size());
+    library.invalidate();
+    library.initialize("en");
+    assertEquals("Machine oatmeal", library.recipe("recipe_001").title);
+    assertEquals("Machine oatmeal", library.displayName("Oatmeal with banana"));
+    java.util.Map<String, String> invalid = new java.util.LinkedHashMap<>();
+    invalid.put(source, "Changed");
+    invalid.put("missing-source", "invalid");
+    try {
+      store.save("en", invalid);
+      fail("Foreign key should reject missing source");
+    } catch (android.database.sqlite.SQLiteConstraintException expected) {
+    }
+    library.invalidate();
+    library.initialize("en");
+    assertEquals("Machine oatmeal", library.recipe("recipe_001").title);
+    library.initialize("pl");
+    assertEquals("Owsianka z bananem", library.recipe("recipe_001").title);
+    assertEquals("Owsianka z bananem", library.displayName("Machine oatmeal"));
+  }
+
+  @Test
+  public void allCatalogContentLoadsInThreeLanguages() throws Exception {
+    for (String language : new String[] {"ru", "en", "pl"}) {
+      library.initialize(language);
+      assertEquals(220, library.all().size());
+      int recipes = 0;
+      for (com.nutrifit.app.model.Recipe recipe : library.all()) {
+        assertTrue(recipe.grams > 0);
+        if (!recipe.product) {
+          recipes++;
+          assertTrue(recipe.ingredients.size() >= 3);
+          assertTrue(recipe.steps.size() >= 3);
+        }
+        if (!language.equals("ru")) {
+          assertFalse(recipe.title.matches("(?s).*[А-Яа-яЁё].*"));
+          for (String step : recipe.steps) assertFalse(step.matches("(?s).*[А-Яа-яЁё].*"));
+          for (com.nutrifit.app.model.Recipe.Ingredient i : recipe.ingredients)
+            assertFalse(i.name.matches("(?s).*[А-Яа-яЁё].*"));
+        }
+      }
+      assertEquals(120, recipes);
+    }
+  }
+
+  @Test
+  public void demoDatabaseIsSeparate() throws Exception {
+    library.initialize();
+    library.water("2026-01-01", 750);
+    DemoContext guest = new DemoContext(context);
+    AppDatabase guestDb = new AppDatabase(guest);
+    try {
+      LibraryStore guestLibrary = new LibraryStore(guest, guestDb);
+      guestLibrary.initialize();
+      assertEquals(0, guestLibrary.water("2026-01-01"));
+      guestLibrary.water("2026-01-01", 250);
+      assertEquals(750, library.water("2026-01-01"));
+    } finally {
+      guestDb.close();
+      guest.deleteDatabase("nutrifit.db");
+    }
+  }
+
+  @Test
   public void switchingLanguagesPreservesDatabaseAndRefreshesCache() throws Exception {
     library.initialize("ru");
     String day = LocalDate.now().toString();
@@ -38,9 +180,9 @@ public class LocalStorageTest {
     assertEquals(220, library.all().size());
     try (android.database.Cursor c =
         db.getReadableDatabase()
-            .rawQuery("SELECT payload FROM recipes WHERE id=?", new String[] {id})) {
+            .rawQuery("SELECT title FROM catalog_items WHERE id=?", new String[] {id})) {
       assertTrue(c.moveToFirst());
-      assertEquals(russian, new org.json.JSONObject(c.getString(0)).getString("title"));
+      assertEquals(russian, c.getString(0));
     }
   }
 

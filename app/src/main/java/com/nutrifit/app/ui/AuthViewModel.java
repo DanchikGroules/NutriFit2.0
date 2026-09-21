@@ -14,13 +14,20 @@ public class AuthViewModel extends AndroidViewModel {
     super(app);
   }
 
-  public void demo(String name,String language) {
-    if(Integer.valueOf(1).equals(state.getValue()))return;
+  public void demo(String name, String language) {
+    if (Integer.valueOf(1).equals(state.getValue())) return;
     state.setValue(1);
-    LocalRepository.get(getApplication()).io.execute(()->{
-      try {LocalRepository.startDemo(getApplication(),name,language);state.postValue(2);}
-      catch(Exception e){state.postValue(4);}
-    });
+    LocalRepository.get(getApplication())
+        .io
+        .execute(
+            () -> {
+              try {
+                LocalRepository.startDemo(getApplication(), name, language);
+                state.postValue(2);
+              } catch (Exception e) {
+                state.postValue(4);
+              }
+            });
   }
 
   public void submit(boolean register, String name, String email, char[] password) {

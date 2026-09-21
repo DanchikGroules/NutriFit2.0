@@ -10,8 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AppDatabase extends SQLiteOpenHelper {
+  private final Context context;
+
   public AppDatabase(Context context) {
-    super(context, "nutrifit.db", null, 2);
+    super(context, "nutrifit.db", null, 3);
+    this.context = context;
+    setWriteAheadLoggingEnabled(true);
   }
 
   @Override
@@ -27,12 +31,17 @@ public class AppDatabase extends SQLiteOpenHelper {
             + " protein REAL NOT NULL, fat REAL NOT NULL, carbs REAL NOT NULL)");
     db.execSQL("CREATE INDEX diary_day ON diary(day)");
     db.execSQL("CREATE TABLE weights (day TEXT PRIMARY KEY, kg REAL NOT NULL CHECK(kg>0))");
+    CatalogDatabase.install(context, db);
     LibraryStore.createSchema(db);
   }
 
   @Override
   public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    if (oldVersion < 2) LibraryStore.createSchema(db);
+    if (oldVersion < 3) {
+      CatalogDatabase.install(context, db);
+      if (oldVersion < 2) LibraryStore.createSchema(db);
+      else CatalogDatabase.migrateVersionTwo(db);
+    }
   }
 
   public void add(String day, String meal, Food food, double grams) {

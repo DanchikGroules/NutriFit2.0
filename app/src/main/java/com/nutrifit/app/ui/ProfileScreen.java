@@ -19,7 +19,12 @@ final class ProfileScreen {
     draft =
         restored != null ? restored : (a.profile == null ? new Profile() : a.repo.profiles.load());
     if (draft.name.isEmpty()) draft.name = a.repo.account.name();
-    Ui.text(root, R.id.account, a.repo.isDemo?a.getString(R.string.demo_account):a.getString(R.string.account_info, a.repo.account.email()));
+    Ui.text(
+        root,
+        R.id.account,
+        a.repo.isDemo
+            ? a.getString(R.string.demo_account)
+            : a.getString(R.string.account_info, a.repo.account.email()));
     Ui.text(root, R.id.profile_name, draft.name);
     Ui.text(root, R.id.age, Integer.toString(draft.age));
     Ui.text(root, R.id.height, Double.toString(draft.height));
@@ -104,7 +109,7 @@ final class ProfileScreen {
         .setOnClickListener(
             v ->
                 new MaterialAlertDialogBuilder(a)
-                    .setMessage(a.repo.isDemo?R.string.demo_exit_note:R.string.logout_question)
+                    .setMessage(a.repo.isDemo ? R.string.demo_exit_note : R.string.logout_question)
                     .setNegativeButton(R.string.cancel, null)
                     .setPositiveButton(
                         R.string.logout, (d, w) -> a.write(a.repo::signOut, a::openAuth))
@@ -113,9 +118,12 @@ final class ProfileScreen {
         .setOnClickListener(v -> AccountDialogs.change(a, false));
     root.findViewById(R.id.recovery_create).setOnClickListener(v -> AccountDialogs.change(a, true));
     root.findViewById(R.id.profile_plus).setOnClickListener(v -> a.show(R.id.nav_premium));
-    if(a.repo.isDemo) {
-      Ui.text(root,R.id.logout,a.getString(R.string.demo_exit));
-      for(int id:new int[]{R.id.security_heading,R.id.security_note,R.id.change_password,R.id.recovery_create})root.findViewById(id).setVisibility(View.GONE);
+    if (a.repo.isDemo) {
+      Ui.text(root, R.id.logout, a.getString(R.string.demo_exit));
+      for (int id :
+          new int[] {
+            R.id.security_heading, R.id.security_note, R.id.change_password, R.id.recovery_create
+          }) root.findViewById(id).setVisibility(View.GONE);
     }
   }
 

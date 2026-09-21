@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">NutriFit</string>
     <string name="tagline">Nutrition at your own pace</string>
@@ -13,7 +13,7 @@
     <string name="confirm_password">Confirm password</string>
     <string name="register">Create account</string>
     <string name="login">Sign in</string>
-    <string name="privacy">No cloud or data uploads. One account on this device. Email is used for sign-in only; a recovery code restores access.</string>
+    <string name="privacy">Your account and diary stay on your phone. Email is used for sign-in and a recovery code restores access. ML Kit translates text on-device and sends SDK performance metrics to Google.</string>
     <string name="password_help">8 to 128 characters</string>
     <string name="name_error">Enter a name with 1 to 50 characters.</string>
     <string name="email_error">Enter a valid email address.</string>
@@ -310,4 +310,14 @@
     <string name="demo_badge">DEMO · separate data</string>
     <string name="demo_exit">Exit demo</string>
     <string name="demo_exit_note">Return to sign-in? Demo entries remain saved separately. Your personal account still requires a password or recovery code.</string>
+    <string name="translation_title">On-device translation</string>
+    <string name="translation_note">ML Kit translates names, ingredients, steps and lessons on your phone. The first model download needs Wi-Fi: about 30 MB per language. Results are saved in SQLite and work offline. Machine translation may be inaccurate.</string>
+    <string name="translation_start">Prepare translation</string>
+    <string name="translation_offline">Continue without downloading</string>
+    <string name="translation_ready">Prepare a translation or open the bundled catalog now.</string>
+    <string name="translation_downloading">Preparing language models… Connect to Wi-Fi.</string>
+    <string name="translation_working">Translating the catalog on your phone…</string>
+    <string name="translation_count">Translated: %1$d of %2$d</string>
+    <string name="translation_error">Could not prepare translation. Check Wi-Fi and free storage, then retry. Bundled translations are available without a download.</string>
+    <string name="translation_retry">Retry</string>
 </resources>

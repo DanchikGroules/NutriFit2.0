@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">NutriFit</string>
     <string name="tagline">Odżywianie w Twoim rytmie</string>
@@ -13,7 +13,7 @@
     <string name="confirm_password">Powtórz hasło</string>
     <string name="register">Utwórz konto</string>
     <string name="login">Zaloguj się</string>
-    <string name="privacy">Bez chmury i wysyłania danych. Jedno konto na urządzeniu. Email służy tylko do logowania; dostęp można odzyskać za pomocą kodu.</string>
+    <string name="privacy">Konto i dziennik są przechowywane tylko na telefonie. Email służy do logowania, a kod do odzyskiwania dostępu. ML Kit tłumaczy tekst na urządzeniu i wysyła Google techniczne metryki działania SDK.</string>
     <string name="password_help">Od 8 do 128 znaków</string>
     <string name="name_error">Wpisz imię: od 1 do 50 znaków.</string>
     <string name="email_error">Wpisz poprawny adres email.</string>
@@ -310,4 +310,14 @@
     <string name="demo_badge">DEMO · osobne dane</string>
     <string name="demo_exit">Wyjdź z demo</string>
     <string name="demo_exit_note">Wrócić do logowania? Wpisy demo pozostaną zapisane osobno. Konto osobiste nadal wymaga hasła lub kodu odzyskiwania.</string>
+    <string name="translation_title">Tłumaczenie na urządzeniu</string>
+    <string name="translation_note">ML Kit przetłumaczy nazwy, składniki, kroki i lekcje na telefonie. Pierwsze pobranie modeli wymaga Wi-Fi: około 30 MB na język. Wyniki są zapisywane w SQLite i działają offline. Tłumaczenie maszynowe może być niedokładne.</string>
+    <string name="translation_start">Przygotuj tłumaczenie</string>
+    <string name="translation_offline">Kontynuuj bez pobierania</string>
+    <string name="translation_ready">Przygotuj tłumaczenie lub od razu otwórz wbudowany katalog.</string>
+    <string name="translation_downloading">Przygotowywanie modeli językowych… Połącz się z Wi-Fi.</string>
+    <string name="translation_working">Tłumaczenie katalogu na telefonie…</string>
+    <string name="translation_count">Przetłumaczono: %1$d z %2$d</string>
+    <string name="translation_error">Nie udało się przygotować tłumaczenia. Sprawdź Wi-Fi i wolne miejsce, a następnie spróbuj ponownie. Wbudowane tłumaczenia są dostępne bez pobierania.</string>
+    <string name="translation_retry">Spróbuj ponownie</string>
 </resources>

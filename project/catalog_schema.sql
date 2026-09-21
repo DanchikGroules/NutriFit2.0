@@ -1,0 +1,11 @@
+CREATE TABLE catalog_text(source TEXT PRIMARY KEY, en TEXT NOT NULL, pl TEXT NOT NULL);
+CREATE TABLE catalog_items(id TEXT PRIMARY KEY, title TEXT NOT NULL REFERENCES catalog_text(source), category TEXT NOT NULL, product INTEGER NOT NULL CHECK(product IN (0,1)), minutes INTEGER NOT NULL CHECK(minutes>=0), grams REAL NOT NULL CHECK(grams>0), kcal REAL NOT NULL CHECK(kcal>=0), protein REAL NOT NULL CHECK(protein>=0), fat REAL NOT NULL CHECK(fat>=0), carbs REAL NOT NULL CHECK(carbs>=0));
+CREATE TABLE item_tags(item_id TEXT NOT NULL REFERENCES catalog_items(id) ON DELETE CASCADE, tag TEXT NOT NULL, PRIMARY KEY(item_id,tag));
+CREATE TABLE item_allergens(item_id TEXT NOT NULL REFERENCES catalog_items(id) ON DELETE CASCADE, allergen TEXT NOT NULL, PRIMARY KEY(item_id,allergen));
+CREATE TABLE recipe_ingredients(recipe_id TEXT NOT NULL REFERENCES catalog_items(id) ON DELETE CASCADE, position INTEGER NOT NULL CHECK(position>=0), product_id TEXT NOT NULL REFERENCES catalog_items(id), grams REAL NOT NULL CHECK(grams>0), PRIMARY KEY(recipe_id,position));
+CREATE TABLE recipe_steps(recipe_id TEXT NOT NULL REFERENCES catalog_items(id) ON DELETE CASCADE, position INTEGER NOT NULL CHECK(position>=0), text_key TEXT NOT NULL REFERENCES catalog_text(source), PRIMARY KEY(recipe_id,position));
+CREATE TABLE lessons(id TEXT PRIMARY KEY, position INTEGER NOT NULL UNIQUE, title TEXT NOT NULL REFERENCES catalog_text(source), author TEXT NOT NULL REFERENCES catalog_text(source), body TEXT NOT NULL REFERENCES catalog_text(source), url TEXT NOT NULL, premium INTEGER NOT NULL CHECK(premium IN (0,1)));
+CREATE INDEX catalog_category ON catalog_items(product,category);
+CREATE INDEX ingredients_product ON recipe_ingredients(product_id);
+CREATE INDEX tags_filter ON item_tags(tag,item_id);
+CREATE INDEX allergens_filter ON item_allergens(allergen,item_id);

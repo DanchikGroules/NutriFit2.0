@@ -42,7 +42,12 @@ public class AuthActivity extends AppCompatActivity {
     root.findViewById(R.id.forgot)
         .setOnClickListener(v -> AccountDialogs.reset(this, Ui.value(root, R.id.email)));
     AuthViewModel model = new ViewModelProvider(this).get(AuthViewModel.class);
-    root.findViewById(R.id.demo_entry).setOnClickListener(v->model.demo(getString(R.string.demo_name),com.nutrifit.app.data.ContentTranslations.language(this)));
+    root.findViewById(R.id.demo_entry)
+        .setOnClickListener(
+            v ->
+                model.demo(
+                    getString(R.string.demo_name),
+                    com.nutrifit.app.data.ContentTranslations.language(this)));
     model.state.observe(
         this,
         status -> {

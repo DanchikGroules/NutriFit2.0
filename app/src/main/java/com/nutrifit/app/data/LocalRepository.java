@@ -17,11 +17,11 @@ public final class LocalRepository {
   public final LibraryStore library;
   public final android.content.SharedPreferences features;
 
-  private LocalRepository(Context context,boolean demo) {
-    Context original=context.getApplicationContext();
-    session=original.getSharedPreferences("app_session",Context.MODE_PRIVATE);
-    isDemo=demo;
-    Context app = demo?new DemoContext(original):original;
+  private LocalRepository(Context context, boolean demo) {
+    Context original = context.getApplicationContext();
+    session = original.getSharedPreferences("app_session", Context.MODE_PRIVATE);
+    isDemo = demo;
+    Context app = demo ? new DemoContext(original) : original;
     db = new AppDatabase(app);
     profiles = new ProfileStore(app);
     account = new LocalAccount(app);
@@ -39,35 +39,43 @@ public final class LocalRepository {
   }
 
   public static synchronized LocalRepository get(Context context) {
-    if(context.getApplicationContext().getSharedPreferences("app_session",Context.MODE_PRIVATE).getBoolean("guest",false)) {
-      if(demoInstance==null)demoInstance=new LocalRepository(context,true);
+    if (context
+        .getApplicationContext()
+        .getSharedPreferences("app_session", Context.MODE_PRIVATE)
+        .getBoolean("guest", false)) {
+      if (demoInstance == null) demoInstance = new LocalRepository(context, true);
       return demoInstance;
     }
-    if (instance == null) instance = new LocalRepository(context,false);
+    if (instance == null) instance = new LocalRepository(context, false);
     return instance;
   }
 
-  public boolean hasAccess() {return isDemo?session.getBoolean("guest",false):account.signedIn();}
+  public boolean hasAccess() {
+    return isDemo ? session.getBoolean("guest", false) : account.signedIn();
+  }
 
   public void signOut() {
-    if(isDemo) {
-      if(!session.edit().putBoolean("guest",false).commit())throw new IllegalStateException("session_write_failed");
+    if (isDemo) {
+      if (!session.edit().putBoolean("guest", false).commit())
+        throw new IllegalStateException("session_write_failed");
     } else account.logout();
   }
 
   /** Call from the auth ViewModel IO queue; guest content survives process recreation. */
-  public static synchronized void startDemo(Context context,String name,String language) throws Exception {
-    if(demoInstance==null)demoInstance=new LocalRepository(context,true);
-    LocalRepository demo=demoInstance;
+  public static synchronized void startDemo(Context context, String name, String language)
+      throws Exception {
+    if (demoInstance == null) demoInstance = new LocalRepository(context, true);
+    LocalRepository demo = demoInstance;
     demo.library.initialize(language);
-    if(demo.profiles.load()==null) {
-      com.nutrifit.app.model.Profile profile=new com.nutrifit.app.model.Profile();
-      profile.name=name;
+    if (demo.profiles.load() == null) {
+      com.nutrifit.app.model.Profile profile = new com.nutrifit.app.model.Profile();
+      profile.name = name;
       demo.profiles.save(profile);
-      demo.library.favorite("recipe_001",true);
-      demo.library.favorite("recipe_021",true);
+      demo.library.favorite("recipe_001", true);
+      demo.library.favorite("recipe_021", true);
       demo.premium(true);
     }
-    if(!demo.session.edit().putBoolean("guest",true).commit())throw new IllegalStateException("session_write_failed");
+    if (!demo.session.edit().putBoolean("guest", true).commit())
+      throw new IllegalStateException("session_write_failed");
   }
 }

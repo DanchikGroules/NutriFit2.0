@@ -17,6 +17,12 @@ final class LanguageSettings {
             current.equals("pl") ? 2 : current.equals("en") ? 1 : 0,
             (dialog, which) -> {
               dialog.dismiss();
+              if (which != 0) {
+                activity.startActivity(
+                    new android.content.Intent(activity, TranslationActivity.class)
+                        .putExtra("language", which == 2 ? "pl" : "en"));
+                return;
+              }
               AppCompatDelegate.setApplicationLocales(
                   LocaleListCompat.forLanguageTags(which == 2 ? "pl" : which == 1 ? "en" : "ru"));
             })
