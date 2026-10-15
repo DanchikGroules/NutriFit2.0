@@ -96,6 +96,3 @@ B/T/W, masa gotowego dania oraz czas przygotowania są wartościami demonstracyj
 Szczegóły: [architektura](project/IMPLEMENTATION.md), [źródła](project/SOURCES.md), [testy](project/TESTING.md), [scenariusz prezentacji](project/PROJECT.md).
 
 Szczegóły dotyczące tłumaczeń, optymalizacji i animacji: [LOCALIZATION.md](project/LOCALIZATION.md).
-
-хуй пизда пизда
-
